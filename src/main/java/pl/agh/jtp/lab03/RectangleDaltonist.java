@@ -32,6 +32,10 @@ public class RectangleDaltonist extends Rectangle {
         }
 
         Rectangle rect = (Rectangle) o;
+
+        if(rect.getColor().getB() != getColor().getB()) {
+            return false;
+        }
         if (Double.compare(rect.getA(), getA()) != 0) {
             return false;
         }

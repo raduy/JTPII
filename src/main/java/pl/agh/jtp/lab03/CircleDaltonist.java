@@ -28,10 +28,11 @@ public class CircleDaltonist extends Circle {
         }
 
         CircleDaltonist cd = (CircleDaltonist) o;
+
         if(getColor().getB() != cd.getColor().getB()) {
             return false;
         }
-        if(getArea() != cd.getArea()) {
+        if(Double.compare(getR(), cd.getR()) != 0) {
             return false;
         }
 

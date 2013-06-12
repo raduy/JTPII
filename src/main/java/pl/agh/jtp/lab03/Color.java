@@ -37,6 +37,6 @@ public enum Color {
     }
 
     public boolean equals(Color color) {
-        return this.toString() == color.toString();
+        return toString().equals(color.toString());
     }
 }

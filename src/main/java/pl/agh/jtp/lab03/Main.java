@@ -41,12 +41,15 @@ public class Main {
         Set<Figure> set = new HashSet<Figure>();
         set.add(new TriangleDaltonist(2D, 3D, Color.RED));
         set.add(new TriangleDaltonist(2D, 3D, Color.GREEN));
+        set.add(new TriangleDaltonist(2D, 3D, Color.BLUE));
 
         set.add(new RectangleDaltonist(3., 1., Color.GREEN));
         set.add(new RectangleDaltonist(3., 1., Color.RED));
+        set.add(new RectangleDaltonist(3., 1., Color.BLUE));
 
         set.add(new CircleDaltonist(6., Color.GREEN));
         set.add(new CircleDaltonist(6., Color.RED));
+        set.add(new CircleDaltonist(6., Color.BLUE));
 
         for(Figure figure : set) {
             System.out.println(figure);
