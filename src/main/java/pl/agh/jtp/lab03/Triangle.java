@@ -25,8 +25,11 @@ public class Triangle extends AbstractFigure {
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 47 * result + (int)Double.doubleToLongBits(getA());
-        result = 47 * result + (int)Double.doubleToLongBits(getH());
+        long temp;
+        temp = Double.doubleToLongBits(getArea());
+        result = 31 * result + (int)(temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(getH());
+        result = 31 * result + (int)(temp ^ (temp >>> 32));
         return result;
     }
 
@@ -37,16 +40,31 @@ public class Triangle extends AbstractFigure {
 
     @Override
     public boolean equals(Object o) {
-        if(this == o)
+        if(this == o) {
             return true;
-        if(!this.getClass().equals(o.getClass()))
+        }
+        if(!(o instanceof Triangle)) {
             return  false;
+        }
 
         Triangle triangle = (Triangle) o;
 
-        if(!this.getColor().equals((triangle.getColor())))
+        if(!getColor().equals((triangle.getColor()))) {
             return false;
-        return !(this.getA() != triangle.getA() || this.getH() != triangle.getH());
+        }
+        if(Double.compare(triangle.getA(), getA()) != 0) {
+            return false;
+        }
+        if(Double.compare(triangle.getH(), getH()) != 0) {
+            return false;
+        }
 
+        return true;
+    }
+
+    @Override
+    public int compareTo(AbstractFigure abstractFigure) {
+        Double temp = new Double(getArea());
+        return temp.compareTo(abstractFigure.getArea());
     }
 }

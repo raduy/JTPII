@@ -19,13 +19,21 @@ public class Circle extends AbstractFigure {
 
     @Override
     public boolean equals(Object o) {
-        if(this == o) return true;
-        if(o == null || getClass() != o.getClass()) return false;
+        if(this == o) {
+            return true;
+        }
+        if(o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Circle circle = (Circle) o;
 
-        if(Double.compare(circle.r, r) != 0) return false;
-        if(!this.getColor().equals(circle.getColor())) return false;
+        if(Double.compare(circle.r, r) != 0) {
+            return false;
+        }
+        if(!getColor().equals(circle.getColor())) {
+            return false;
+        }
 
         return true;
     }
@@ -42,5 +50,11 @@ public class Circle extends AbstractFigure {
     @Override
     public String toString() {
         return "Circle of radius: " + getR() + " and color:  " + getColor();
+    }
+
+    @Override
+    public int compareTo(AbstractFigure abstractFigure) {
+        Double temp = new Double(getArea());
+        return temp.compareTo(abstractFigure.getArea());
     }
 }

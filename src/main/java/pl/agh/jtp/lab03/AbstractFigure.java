@@ -6,7 +6,7 @@ package pl.agh.jtp.lab03;
  * Date: 13.04.13
  * Time: 11:58
  */
-abstract class AbstractFigure implements Figure {
+abstract class AbstractFigure implements Figure, Comparable<AbstractFigure> {
     private final Color color;
 
     public AbstractFigure(Color color) {
@@ -17,7 +17,9 @@ abstract class AbstractFigure implements Figure {
         return color;
     }
 
+    @Override
     public int hashCode() {
         return getColor().hashCode();
     }
+
 }

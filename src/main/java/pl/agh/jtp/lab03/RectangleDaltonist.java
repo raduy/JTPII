@@ -12,22 +12,30 @@ public class RectangleDaltonist extends Rectangle {
     @Override
     public int hashCode() {
         int result = getColor().getB();
-        result =  47 * result + (int)Double.doubleToLongBits(getA());
-        result =  47 * result + (int)Double.doubleToLongBits(getB());
+        long temp;
+        temp = Double.doubleToLongBits(getA());
+        result =  31 * result + (int)(temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(getB());
+        result =  31 * result + (int)(temp ^ (temp >>> 32));
 
         return result;
     }
 
+
     @Override
     public boolean equals(Object o) {
-        if (!o.getClass().equals(this.getClass())) {
+        if(this == o) {
+            return true;
+        }
+        if (!(o instanceof RectangleDaltonist)) {
             return false;
         }
+
         Rectangle rect = (Rectangle) o;
-        if (rect.getColor().getB() != getColor().getB()) {
+        if (Double.compare(rect.getA(), getA()) != 0) {
             return false;
         }
-        if (rect.getA() != this.getA() || rect.getB() != this.getB()) {
+        if (Double.compare(rect.getB(), getB()) != 0) {
             return false;
         }
         return true;

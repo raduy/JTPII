@@ -42,6 +42,12 @@ public class Main {
         set.add(new TriangleDaltonist(2D, 3D, Color.RED));
         set.add(new TriangleDaltonist(2D, 3D, Color.GREEN));
 
+        set.add(new RectangleDaltonist(3., 1., Color.GREEN));
+        set.add(new RectangleDaltonist(3., 1., Color.RED));
+
+        set.add(new CircleDaltonist(6., Color.GREEN));
+        set.add(new CircleDaltonist(6., Color.RED));
+
         for(Figure figure : set) {
             System.out.println(figure);
         }

@@ -33,8 +33,11 @@ public class Rectangle extends AbstractFigure {
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 47 * result + (int)Double.doubleToLongBits(getA());
-        result = 47 * result + (int)Double.doubleToLongBits(getB());
+        long temp;
+        temp = Double.doubleToLongBits(a);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(b);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
 
@@ -45,19 +48,27 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public boolean equals(Object o) {
-        if(this == o)
+        if(this == o) {
             return true;
-        if(!o.getClass().equals(this.getClass()))
+        }
+        if(!(o instanceof Rectangle)) {
             return false;
+        }
 
         Rectangle rectangle = (Rectangle) o;
 
-        if(!rectangle.getColor().equals(this.getColor()))
+        if(Double.compare(rectangle.a, a) != 0) {
             return false;
-
-        if(rectangle.getA() != this.getA() || rectangle.getB() != this.getB())
+        }
+        if(Double.compare(rectangle.b, b) != 0) {
             return false;
-
+        }
         return true;
+    }
+
+    @Override
+    public int compareTo(AbstractFigure abstractFigure) {
+        Double temp = new Double(getArea());
+        return temp.compareTo(abstractFigure.getArea());
     }
 }
