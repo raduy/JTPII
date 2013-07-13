@@ -1,4 +1,4 @@
-package pl.agh.jtp.lab02_home;
+package pl.agh.jtp.lab02;
 
 /**
  * @author Łukasz Raduj <raduj.lukasz@gmail.com>
@@ -21,6 +21,11 @@ public class Tester extends AbstractEmployee {
     @Override
     public String work() {
         return "Tester: " + getName() + " is testing code...";
+    }
+
+    @Override
+    public String getDescription() {
+        return "[" + getName() + ", " + getRole() + ", " + 0 + "]";
     }
 
     @Override

@@ -1,4 +1,4 @@
-package pl.agh.jtp.lab02_home;
+package pl.agh.jtp.lab02;
 
 /**
  * @author Łukasz Raduj <raduj.lukasz@gmail.com>

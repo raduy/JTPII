@@ -1,4 +1,4 @@
-package pl.agh.jtp.lab02_home;
+package pl.agh.jtp.lab02;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,11 +9,10 @@ import java.util.List;
  */
 public class GroupManager extends AbstractEmployee implements IManager {
 
-    private List<IEmployee> employees;
-    private int maxNumberOfEmployee;
+    private final List<IEmployee> employees;
+    private final int maxNumberOfEmployee;
 
     /**
-     *
      * @param name
      * @param role
      * @param maxNumberOfEmployee
@@ -25,7 +24,6 @@ public class GroupManager extends AbstractEmployee implements IManager {
     }
 
     /**
-     *
      * @param employee to be hired
      * @return
      */
@@ -37,12 +35,13 @@ public class GroupManager extends AbstractEmployee implements IManager {
         if(employees.contains(employee)) {
             return false;
         }
+
         employees.add(employee);
+        employee.setSupervisor(this);
         return true;
     }
 
     /**
-     *
      * @param employee to be fired
      * @return
      */
@@ -52,7 +51,6 @@ public class GroupManager extends AbstractEmployee implements IManager {
     }
 
     /**
-     *
      * @return if manager canHire another employee
      */
     @Override
@@ -61,7 +59,6 @@ public class GroupManager extends AbstractEmployee implements IManager {
     }
 
     /**
-     *
      * @return work specification of the manager team
      */
     @Override
@@ -73,15 +70,20 @@ public class GroupManager extends AbstractEmployee implements IManager {
         work.append(getName() + " is working with his team:");
         StringBuilder subordinatesWork = new StringBuilder();
         for (IEmployee subordinate : employees) {
-            subordinatesWork.append("\n|---");
-            subordinatesWork.append(subordinate.work());
+            subordinatesWork.append("\n|---")
+                            .append(subordinate.work());
         }
-        work.append(subordinatesWork.toString().replaceAll("\n(^|)", "\n|   "));
+        work.append(subordinatesWork.toString().replaceAll("\n(^|)", "\n|---"));
         return work.toString();
     }
 
     @Override
+    public String getDescription() {
+        return "[" + getName() + ", " + getRole() + ", " + maxNumberOfEmployee + "]";
+    }
+
+    @Override
     public Iterator<IEmployee> iterator() {
-        return employees.iterator();
+        return new EmployeeIterator(employees);
     }
 }

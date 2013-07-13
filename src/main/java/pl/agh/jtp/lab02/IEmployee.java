@@ -1,4 +1,6 @@
-package pl.agh.jtp.lab02_home;
+package pl.agh.jtp.lab02;
+
+import com.sun.javafx.scene.paint.GradientUtils;
 
 /**
  * @author Łukasz Raduj <raduj.lukasz@gmail.com>
@@ -25,7 +27,22 @@ public interface IEmployee {
     String work();
 
     /**
+     * @param manager
+     */
+    void setSupervisor(IManager manager);
+
+    /**
+     * @return supervisor of employee
+     */
+    IManager getSupervisor();
+
+    /**
+     * @return description of employee in format: [name, role, number of subordinates].
+     */
+    String getDescription();
+
+    /**
      * @return employee's salary
      */
-    //BigInteger getSalary();
+    //BigDecimal getSalary();
 }
