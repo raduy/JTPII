@@ -1,7 +1,5 @@
 package pl.agh.jtp.lab02;
 
-import com.sun.javafx.scene.paint.GradientUtils;
-
 /**
  * @author Łukasz Raduj <raduj.lukasz@gmail.com>
  */

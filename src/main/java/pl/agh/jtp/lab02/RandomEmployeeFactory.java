@@ -5,9 +5,9 @@ import java.util.Random;
 /**
  * @author Łukasz Raduj <raduj.lukasz@gmail.com>
  */
-public class EmployeeFactory {
+public class RandomEmployeeFactory {
 
-    private Random random = new Random();
+    private static Random random = new Random();
     private final int maxNumberOfSubordinatesForManger = 10;
     private final static String[] names = {"John Smith" , "Adrew Wolski", "Jigy Banow",
                                            "Kate Walker" ,"Spencer Ban", "Martin Falkow"};
@@ -35,19 +35,12 @@ public class EmployeeFactory {
     }
 
     public IEmployee getRandomEmployee() {
-        IEmployee result;
-        switch (random.nextInt(3)) {
-            case 0 : result = new Developer(getRandomName(), getRandomRoleForDeveloper());
-                     break;
-            case 1 : result = new Tester(getRandomName(), getRandomRoleForTester());
-                     break;
-            case 2 : result = new GroupManager(getRandomName(), getRandomRoleForManger(),
-                                               random.nextInt(maxNumberOfSubordinatesForManger));
-                     break;
-            default: result = getRandomEmployee();
+        switch (random.nextInt(2)) {
+            case 0 : return new Developer(getRandomName(), getRandomRoleForDeveloper());
+            case 1 : return new Tester(getRandomName(), getRandomRoleForTester());
+            default: return new GroupManager(getRandomName(), getRandomRoleForManger(),
+                    random.nextInt(maxNumberOfSubordinatesForManger));
         }
-
-        return result;
     }
 
     public IEmployee[] getTableOfNRandomEmployees(int n) {

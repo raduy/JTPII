@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class GroupManager extends AbstractEmployee implements IManager {
 
-    private final List<IEmployee> employees;
+    private final List<IEmployee> employees = new ArrayList<IEmployee>();
     private final int maxNumberOfEmployee;
 
     /**
@@ -19,7 +19,6 @@ public class GroupManager extends AbstractEmployee implements IManager {
      */
     public GroupManager(String name, String role, int maxNumberOfEmployee) {
         super(name, role);
-        employees = new ArrayList<IEmployee>();
         this.maxNumberOfEmployee = maxNumberOfEmployee;
     }
 
@@ -79,7 +78,7 @@ public class GroupManager extends AbstractEmployee implements IManager {
 
     @Override
     public String getDescription() {
-        return "[" + getName() + ", " + getRole() + ", " + maxNumberOfEmployee + "]";
+        return "[" + getName() + ", " + getRole() + ", " + employees.size() + "]";
     }
 
     @Override

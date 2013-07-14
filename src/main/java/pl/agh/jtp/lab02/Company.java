@@ -6,9 +6,12 @@ package pl.agh.jtp.lab02;
  * @author Łukasz Raduj <raduj.lukasz@gmail.com>
  */
 public class Company {
-    private static Company instance = new Company();
+    private static Company instance;
 
     public static synchronized Company getInstance() {
+        if(instance == null) {
+            instance = new Company();
+        }
         return instance;
     }
 
@@ -20,10 +23,9 @@ public class Company {
      */
     private IManager ceo;
 
-    void hireCEO(IManager manager) throws CEOAlreadyHiredException {
+    void hireCEO(IManager manager) {
         if(ceo == null) {
             ceo = manager;
-            manager.setSupervisor(null);
         } else  {
             throw new CEOAlreadyHiredException("CEO is already hired!");
         }

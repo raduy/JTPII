@@ -13,11 +13,7 @@ public class Main {
         Company company = Company.getInstance();
 
         GroupManager CEO = new GroupManager("Ozi", "CEO", 14);
-        try {
-            company.hireCEO(CEO);
-        } catch (CEOAlreadyHiredException e) {
-            System.out.printf("Ooops! It shouldn't be here...");
-        }
+        company.hireCEO(CEO);
 
         //Hire some managers to create company structure:
         IManager javaManager = new GroupManager("Kuba", "JavaCore Manager", 5);
@@ -29,12 +25,9 @@ public class Main {
 
 
         IManager webFlowManager = new GroupManager("Ania", "FrontEnd Manager", 4);
-        try {
-            company.hireCEO(webFlowManager);
-        } catch (CEOAlreadyHiredException e) {
-            System.out.println("Easy ;) It should be here. It's a test for situation when we hire new " +
-                    "CEO when one is already hired - it throw a special exception");
-        }
+//        When you uncomment line below it will throw CEOAlreadyHiredException
+//        company.hireCEO(webFlowManager);
+
         CEO.hire(webFlowManager);
         webFlowManager.hire(new Developer("Mark", "JS Developer"));
         webFlowManager.hire(new Developer("Chuck", "Bootstrap Expert"));
@@ -65,7 +58,7 @@ public class Main {
         System.out.println(CEO.work());
 
 
-        EmployeeFactory factory = new EmployeeFactory();
+        RandomEmployeeFactory factory = new RandomEmployeeFactory();
 
         System.out.println();
 
