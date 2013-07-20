@@ -27,7 +27,7 @@ public class EmployeeIteratorTest {
 
     @Before
     public void setUp() {
-        employeeIterator = new GroupManager("Bob", "GM", 10, hireStrategy).iterator();
+        employeeIterator = new GroupManager("Bob", "GM", hireStrategy).iterator();
     }
 
     @After

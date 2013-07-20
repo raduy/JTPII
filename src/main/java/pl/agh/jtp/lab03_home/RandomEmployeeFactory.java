@@ -10,7 +10,6 @@ import java.util.Random;
 public class RandomEmployeeFactory {
 
     private static Random random = new Random();
-    private final int maxNumberOfSubordinatesForManger = 10;
     private final static String[] names = {"John Smith" , "Adrew Wolski", "Jigy Banow",
                                            "Kate Walker" ,"Spencer Ban", "Martin Falkow"};
 
@@ -40,8 +39,7 @@ public class RandomEmployeeFactory {
         switch (random.nextInt(2)) {
             case 0 : return new Developer(getRandomName(), getRandomRoleForDeveloper());
             case 1 : return new Tester(getRandomName(), getRandomRoleForTester());
-            default: return new GroupManager(getRandomName(), getRandomRoleForManger(),
-                    random.nextInt(maxNumberOfSubordinatesForManger), new TeamSizeHireStrategy(10));
+            default: return new GroupManager(getRandomName(), getRandomRoleForManger(), new TeamSizeHireStrategy(10));
         }
     }
 

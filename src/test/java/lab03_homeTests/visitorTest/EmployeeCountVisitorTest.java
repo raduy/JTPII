@@ -6,7 +6,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import pl.agh.jtp.lab03_home.IEmployee;
+import pl.agh.jtp.lab03_home.Developer;
+import pl.agh.jtp.lab03_home.GroupManager;
+import pl.agh.jtp.lab03_home.Tester;
 import pl.agh.jtp.lab03_home.visitor.EmployeeCountVisitor;
 
 import static junit.framework.Assert.assertEquals;
@@ -19,10 +21,13 @@ public class EmployeeCountVisitorTest {
     private EmployeeCountVisitor visitor;
 
     @Mock
-    IEmployee employee1;
+    Developer developer;
 
     @Mock
-    IEmployee employee2;
+    Tester tester;
+
+    @Mock
+    GroupManager groupManager;
 
     @Before
     public void setUp() {
@@ -36,10 +41,11 @@ public class EmployeeCountVisitorTest {
 
     @Test
     public void visitMethodTest() {
-        visitor.visit(employee1);
-        visitor.visit(employee2);
+        visitor.visit(developer);
+        visitor.visit(tester);
+        visitor.visit(groupManager);
 
-        assertEquals(2, visitor.getCountOfEmployee());
+        assertEquals(3, visitor.getCountOfEmployee());
 
     }
 }

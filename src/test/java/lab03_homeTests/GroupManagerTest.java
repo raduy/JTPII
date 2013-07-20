@@ -34,7 +34,7 @@ public class GroupManagerTest {
 
     @Before
     public void setUp() {
-        groupManager = new GroupManager("John", "GM", 10, hireStrategy);
+        groupManager = new GroupManager("John", "GM", hireStrategy);
     }
 
     @After
@@ -66,9 +66,7 @@ public class GroupManagerTest {
 
         InOrder inOrder = inOrder(visitor);
         inOrder.verify(visitor).visit(groupManager);
-        inOrder.verify(visitor, times(1)).goLevelDown();
         verify(employee).accept(visitor);
-        inOrder.verify(visitor, times(1)).goLevelUp();
     }
 
 

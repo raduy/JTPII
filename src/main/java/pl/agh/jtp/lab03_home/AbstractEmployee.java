@@ -1,7 +1,5 @@
 package pl.agh.jtp.lab03_home;
 
-import pl.agh.jtp.lab03_home.visitor.Visitor;
-
 import java.math.BigDecimal;
 
 /**
@@ -103,12 +101,6 @@ abstract class AbstractEmployee implements IEmployee {
 
         return true;
     }
-
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-    }
-
 
 }
 

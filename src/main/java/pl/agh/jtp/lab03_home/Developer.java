@@ -1,5 +1,7 @@
 package pl.agh.jtp.lab03_home;
 
+import pl.agh.jtp.lab03_home.visitor.Visitor;
+
 import java.math.BigDecimal;
 
 /**
@@ -36,4 +38,10 @@ public class Developer extends AbstractEmployee {
     public String toString() {
         return "Developer of the name: " + getName() + " and role: " + getRole();
     }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+
 }

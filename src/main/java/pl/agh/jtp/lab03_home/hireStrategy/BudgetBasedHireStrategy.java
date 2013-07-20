@@ -1,5 +1,7 @@
 package pl.agh.jtp.lab03_home.hireStrategy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.agh.jtp.lab03_home.IEmployee;
 import pl.agh.jtp.lab03_home.IManager;
 
@@ -12,13 +14,14 @@ import java.util.Iterator;
  */
 public class BudgetBasedHireStrategy implements HireStrategy {
     private final BigDecimal maxTotalSalary;
+    private final static Logger LOGGER = LoggerFactory.getLogger(BudgetBasedHireStrategy.class);
 
     /**
      * Parameter defines maximum total salary for all direct manager's subordinates
      * @param maxTotalSalary
      */
     public BudgetBasedHireStrategy(BigDecimal maxTotalSalary) {
-        if(maxTotalSalary.compareTo(BigDecimal.ZERO) < 0) {
+        if(maxTotalSalary.signum() < 0) {
             throw new IllegalArgumentException("No pay no work!");
         }
         this.maxTotalSalary = maxTotalSalary;
@@ -30,8 +33,8 @@ public class BudgetBasedHireStrategy implements HireStrategy {
         for(Iterator<IEmployee> it = manager.iterator(); it.hasNext();) {
             totalSalary = totalSalary.add(it.next().getSalary());
         }
-        System.out.println(totalSalary);
 
+        LOGGER.info("totalSalary: " + totalSalary.toString());
         return maxTotalSalary.compareTo(totalSalary) > 0;
     }
 }

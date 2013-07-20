@@ -47,7 +47,7 @@ public class DeveloperTest {
 
     @Test
     public void shouldReturnSetManager() {
-        IManager manager = new GroupManager("Jo Jytr", "Manger", 10, new TeamSizeHireStrategy(10));
+        IManager manager = new GroupManager("Jo Jytr", "Manger", new TeamSizeHireStrategy(10));
         dev.setSupervisor(manager);
 
         assertTrue(dev.getSupervisor().equals(manager));

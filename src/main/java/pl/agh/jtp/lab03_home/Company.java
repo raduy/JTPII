@@ -1,29 +1,25 @@
 package pl.agh.jtp.lab03_home;
 
+import pl.agh.jtp.lab03_home.employmentStrategy.EmploymentStrategy;
+import pl.agh.jtp.lab03_home.visitor.EmployeeCountVisitor;
+import pl.agh.jtp.lab03_home.visitor.Visitable;
 import pl.agh.jtp.lab03_home.visitor.Visitor;
+
+import java.util.*;
 
 /**
  * Class represents simple Company structure
  *
  * @author Łukasz Raduj <raduj.lukasz@gmail.com>
  */
-public class Company {
-    private static Company instance;
-
-    public static synchronized Company getInstance() {
-        if(instance == null) {
-            instance = new Company();
-        }
-        return instance;
-    }
-
-    private Company() {
-    }
-
-    /**
-     * @param CEO is a head manager
-     */
+public class Company extends AbstractCollection<IEmployee> implements Collection<IEmployee>, Visitable {
     private IManager ceo;
+    private final EmploymentStrategy employmentStrategy;
+
+    public Company(IManager ceo, EmploymentStrategy employmentStrategy) {
+        this.employmentStrategy = employmentStrategy;
+        this.ceo = ceo;
+    }
 
     void hireCEO(IManager manager) {
         if(ceo == null) {
@@ -41,15 +37,134 @@ public class Company {
         }
     }
 
-
-    IManager getCEO() {
+    public IManager getCEO() {
         return ceo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) {
+            return true;
+        }
+        if(!(o instanceof Company)) {
+            return false;
+        }
+
+        Company company = (Company) o;
+
+        if(!getCEO().equals((company.getCEO()))) {
+            return false;
+        }
+        if(!employmentStrategy.equals(company.employmentStrategy)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = ceo.hashCode();
+        result = result + 31 * employmentStrategy.hashCode();
+
+        return result;
     }
 
     @Override
     public String toString() {
         return "Company{" +
-                "CEO=" + ceo +
-                '}';
+               "CEO=" + ceo +
+               '}';
+    }
+
+    @Override
+    public int size() {
+        EmployeeCountVisitor visitor = new EmployeeCountVisitor();
+        ceo.accept(visitor);
+
+        return visitor.getCountOfEmployee();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
+    /**
+     *
+     * @param o employee
+     * @return whether employee is hired in this company
+     */
+    @Override
+    public boolean contains(Object o) {
+        while(iterator().hasNext()) {
+            if(iterator().next().equals(o)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return Iterator of employees in DFS order.
+     */
+    @Override
+    public Iterator<IEmployee> iterator() {
+        return new CompanyIterator(this);
+    }
+
+    /**
+     *
+     * @return  Company's employees description in DFS order, start form CEO.
+     */
+    @Override
+    public Object[] toArray() {
+        List<IEmployee> employees = new LinkedList<IEmployee>();
+        while(iterator().hasNext()) {
+            employees.add(iterator().next());
+        }
+        return employees.toArray();
+    }
+
+    @Override
+    public boolean add(IEmployee employee) {
+        IManager manager = employmentStrategy.chooseManger(this, employee);
+        if(manager != null) {
+            manager.hire(employee);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        throw new UnsupportedOperationException("Use fire() method to fire employees");
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends IEmployee> employees) {
+        Iterator<IEmployee> iterator = (Iterator<IEmployee>) employees.iterator();
+        while(iterator.hasNext()) {
+             if(add(iterator.next()) == false){
+                 return false;
+             }
+        }
+        return true;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> objects) {
+        throw new UnsupportedOperationException("Use fire() method to fire employees");
+    }
+
+    @Override
+    public void clear() {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        getCEO().accept(visitor);
     }
 }

@@ -28,7 +28,7 @@ public interface IEmployee extends Visitable {
      */
     String work();
 
-    /**
+    /*/**
      * @param manager
      */
     void setSupervisor(IManager manager);

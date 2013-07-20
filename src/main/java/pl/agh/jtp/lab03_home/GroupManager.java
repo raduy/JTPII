@@ -14,21 +14,25 @@ import java.util.List;
 public class GroupManager extends AbstractEmployee implements IManager, Iterable<IEmployee> {
 
     private final List<IEmployee> employees = new ArrayList<IEmployee>();
-    private final int maxNumberOfEmployee;
     private HireStrategy hireStrategy;
+    private IManager supervisor;
 
     /**
      *
      * @param name
      * @param role
-     * @param maxNumberOfEmployee
      * @param hireStrategy
      */
-    public GroupManager(String name, String role, int maxNumberOfEmployee, HireStrategy hireStrategy) {
+    public GroupManager(String name, String role, HireStrategy hireStrategy) {
         super(name, role);
-        this.maxNumberOfEmployee = maxNumberOfEmployee;
         this.hireStrategy = hireStrategy;
         setSalary(BigDecimal.valueOf(10000));
+    }
+
+    public GroupManager(String name, String role, HireStrategy hireStrategy, BigDecimal salary) {
+        super(name, role);
+        this.hireStrategy = hireStrategy;
+        setSalary(salary);
     }
 
     /**
@@ -55,6 +59,7 @@ public class GroupManager extends AbstractEmployee implements IManager, Iterable
      */
     @Override
     public boolean fire(IEmployee employee) {
+        employee.setSupervisor(null);
         return employees.remove(employee);
     }
 
@@ -98,10 +103,8 @@ public class GroupManager extends AbstractEmployee implements IManager, Iterable
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
-        visitor.goLevelDown();
         for(IEmployee employee : employees) {
             employee.accept(visitor);
         }
-        visitor.goLevelUp();
     }
 }

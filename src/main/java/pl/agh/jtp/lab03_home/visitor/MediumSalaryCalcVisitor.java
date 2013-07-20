@@ -1,6 +1,8 @@
 package pl.agh.jtp.lab03_home.visitor;
 
-import pl.agh.jtp.lab03_home.IEmployee;
+import pl.agh.jtp.lab03_home.Developer;
+import pl.agh.jtp.lab03_home.GroupManager;
+import pl.agh.jtp.lab03_home.Tester;
 
 import java.math.BigDecimal;
 
@@ -22,21 +24,28 @@ public class MediumSalaryCalcVisitor implements Visitor {
         summarySalary = BigDecimal.ZERO;
     }
 
-
     @Override
-    public void visit(IEmployee employee) {
-        if(employee.getRole().equals(role)) {
+    public void visit(GroupManager manager) {
+        if(manager.getRole().equals(role)) {
             numberOfMatchesEmployees++;
-            summarySalary = summarySalary.add(employee.getSalary());
+            summarySalary = summarySalary.add(manager.getSalary());
         }
     }
 
     @Override
-    public void goLevelDown() {
+    public void visit(Developer developer) {
+        if(developer.getRole().equals(role)) {
+            numberOfMatchesEmployees++;
+            summarySalary = summarySalary.add(developer.getSalary());
+        }
     }
 
     @Override
-    public void goLevelUp() {
+    public void visit(Tester tester) {
+        if(tester.getRole().equals(role)) {
+            numberOfMatchesEmployees++;
+            summarySalary = summarySalary.add(tester.getSalary());
+        }
     }
 
     public BigDecimal getMediumSalary() {

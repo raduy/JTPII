@@ -6,7 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import pl.agh.jtp.lab03_home.IEmployee;
+import pl.agh.jtp.lab03_home.Developer;
+import pl.agh.jtp.lab03_home.Tester;
 import pl.agh.jtp.lab03_home.visitor.MediumSalaryCalcVisitor;
 
 import java.math.BigDecimal;
@@ -20,51 +21,55 @@ import static org.mockito.Mockito.when;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class MediumSalaryCalcVisitorTest {
-    private MediumSalaryCalcVisitor visitor;
+    private MediumSalaryCalcVisitor instance;
+
+    //@Mock
+    Developer developer1 = new Developer("dev", "Developer", BigDecimal.valueOf(5000));
+
+    //@Mock
+    Developer developer2 = new Developer("dg", "Developer", BigDecimal.valueOf(4000));
 
     @Mock
-    IEmployee employee1;
-
-    @Mock
-    IEmployee employee2;
-
-    @Mock
-    IEmployee employee3;
+    Tester tester;
 
     @Before
     public void setUp() {
-        visitor = new MediumSalaryCalcVisitor("Manager");
+        instance = new MediumSalaryCalcVisitor("Developer");
     }
 
     @After
     public void tearDown() {
-        visitor = null;
+        instance = null;
     }
 
     @Test
     public void visitMethodTest() { /*How to test it properly ? */
-        //First employee with matched role
-        when(employee1.getRole()).thenReturn("Manager");
-        when(employee1.getSalary()).thenReturn(BigDecimal.valueOf(5000));
-        visitor.visit(employee1);
 
-        assertNotSame(visitor.getMediumSalary(), BigDecimal.ZERO);
-        assertEquals(BigDecimal.valueOf(5000), visitor.getMediumSalary());
+        instance.visit(developer1);
+        instance.visit(developer2);
+        assertEquals(BigDecimal.valueOf(4500), instance.getMediumSalary());
+        /*//First employee with matched role
+        when(developer1.getRole()).thenReturn(String.valueOf("Developer"));
+        when(developer1.getSalary()).thenReturn(BigDecimal.valueOf(5000));
+        instance.visit(developer1);
+
+        assertNotSame(instance.getMediumSalary(), BigDecimal.ZERO);
+        assertEquals(BigDecimal.valueOf(5000), instance.getMediumSalary());
 
         //Second employee with matched role
-        when(employee2.getRole()).thenReturn("Manager");
-        when(employee2.getSalary()).thenReturn(BigDecimal.valueOf(7000));
-        visitor.visit(employee2);
+        when(developer2.getRole()).thenReturn("Developer");
+        when(developer2.getSalary()).thenReturn(BigDecimal.valueOf(7000));
+        instance.visit(developer2);
 
-        assertNotSame(visitor.getMediumSalary(), BigDecimal.ZERO);
-        assertEquals(BigDecimal.valueOf(6000), visitor.getMediumSalary());
+        assertNotSame(instance.getMediumSalary(), BigDecimal.ZERO);
+        assertEquals(BigDecimal.valueOf(6000), instance.getMediumSalary());
 
         //Third employee with NOT matched role - should not cause any different in result
-        when(employee3.getRole()).thenReturn("Developer");
-        when(employee3.getSalary()).thenReturn(BigDecimal.valueOf(7000));
-        visitor.visit(employee3);
+        when(tester.getRole()).thenReturn("Tester");
+        when(tester.getSalary()).thenReturn(BigDecimal.valueOf(7000));
+        instance.visit(tester);
 
-        assertNotSame(visitor.getMediumSalary(), BigDecimal.ZERO);
-        assertEquals(BigDecimal.valueOf(6000), visitor.getMediumSalary());
+        assertNotSame(instance.getMediumSalary(), BigDecimal.ZERO);
+        assertEquals(BigDecimal.valueOf(6000), instance.getMediumSalary());*/
     }
 }

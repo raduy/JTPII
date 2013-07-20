@@ -1,5 +1,7 @@
 package pl.agh.jtp.lab03_home;
 
+import pl.agh.jtp.lab03_home.visitor.Visitor;
+
 import java.math.BigDecimal;
 
 /**
@@ -14,7 +16,12 @@ public class Tester extends AbstractEmployee {
      */
     public Tester(String name, String role) {
         super(name, role);
-        setSalary(BigDecimal.valueOf(4000));
+        setSalary(BigDecimal.valueOf(5000));
+    }
+
+    public Tester(String name, String role, BigDecimal salary) {
+        super(name, role);
+        setSalary(salary);
     }
 
     /**
@@ -35,4 +42,10 @@ public class Tester extends AbstractEmployee {
     public String toString() {
         return "Tester with the name: " + getName() + " and role: " + getRole();
     }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+
 }
