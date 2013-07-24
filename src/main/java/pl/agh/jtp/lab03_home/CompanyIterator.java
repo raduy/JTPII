@@ -2,6 +2,7 @@ package pl.agh.jtp.lab03_home;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 /**
  * Iterator return employees in Deep First Search order.
@@ -36,11 +37,13 @@ public class CompanyIterator implements Iterator<IEmployee> {
             }
             return employee;
         } else {
-            current = pop();
-            next();     //assuming that before every call of next() method hasNext() was call, on the stack there are no empty lists.
+            if(!stack.isEmpty()) {
+                current = pop();
+                next();
+            }
         }
 
-        return null;
+        throw new NoSuchElementException();
     }
 
     @Override

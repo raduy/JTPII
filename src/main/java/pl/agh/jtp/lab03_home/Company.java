@@ -92,39 +92,11 @@ public class Company extends AbstractCollection<IEmployee> implements Collection
 
     /**
      *
-     * @param o employee
-     * @return whether employee is hired in this company
-     */
-    @Override
-    public boolean contains(Object o) {
-        while(iterator().hasNext()) {
-            if(iterator().next().equals(o)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
      * @return Iterator of employees in DFS order.
      */
     @Override
     public Iterator<IEmployee> iterator() {
         return new CompanyIterator(this);
-    }
-
-    /**
-     *
-     * @return  Company's employees description in DFS order, start form CEO.
-     */
-    @Override
-    public Object[] toArray() {
-        List<IEmployee> employees = new LinkedList<IEmployee>();
-        while(iterator().hasNext()) {
-            employees.add(iterator().next());
-        }
-        return employees.toArray();
     }
 
     @Override
@@ -143,24 +115,8 @@ public class Company extends AbstractCollection<IEmployee> implements Collection
     }
 
     @Override
-    public boolean addAll(Collection<? extends IEmployee> employees) {
-        Iterator<IEmployee> iterator = (Iterator<IEmployee>) employees.iterator();
-        while(iterator.hasNext()) {
-             if(add(iterator.next()) == false){
-                 return false;
-             }
-        }
-        return true;
-    }
-
-    @Override
     public boolean removeAll(Collection<?> objects) {
         throw new UnsupportedOperationException("Use fire() method to fire employees");
-    }
-
-    @Override
-    public void clear() {
-        //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override

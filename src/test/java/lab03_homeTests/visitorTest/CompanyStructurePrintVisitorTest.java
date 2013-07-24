@@ -10,6 +10,9 @@ import pl.agh.jtp.lab03_home.Tester;
 import pl.agh.jtp.lab03_home.hireStrategy.TeamSizeHireStrategy;
 import pl.agh.jtp.lab03_home.visitor.CompanyStructurePrintVisitor;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 /**
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
@@ -50,8 +53,21 @@ public class CompanyStructurePrintVisitorTest {
     }
 
     @Test
-    public void stringToPrintTest() { //it should have @Test annotation ? There are any assertion, only printing into Console.out
+    public void stringToPrintTest() {
         headManger.accept(instance);
-        System.out.println(instance.stringToPrint());
+
+        assertEquals("[John, Manager, 3]\n" +
+                "|---[Kuba, JavaCore Manager, 3]\n" +
+                "|---|---[Jake, Junior Java Dev, 0]\n" +
+                "|---|---[Will, Regular Java Dev, 0]\n" +
+                "|---|---[Romek, Java Tester, 0]\n" +
+                "|---[Ania, FrontEnd Manager, 5]\n" +
+                "|---|---[Mark, JS Developer, 0]\n" +
+                "|---|---[Chuck, Bootstrap Expert, 0]\n" +
+                "|---|---[Mili, Tester, 0]\n" +
+                "|---|---[BigBob, SecurityManager, 1]\n" +
+                "|---|---|---[FatJoe, TestGuy, 0]\n" +
+                "|---|---[Guy, tester, 0]\n" +
+                "|---[Bary, Developer, 0]\n", instance.stringToPrint());
     }
 }

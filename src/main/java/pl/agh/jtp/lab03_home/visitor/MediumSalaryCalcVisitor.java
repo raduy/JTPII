@@ -2,12 +2,13 @@ package pl.agh.jtp.lab03_home.visitor;
 
 import pl.agh.jtp.lab03_home.Developer;
 import pl.agh.jtp.lab03_home.GroupManager;
+import pl.agh.jtp.lab03_home.IEmployee;
 import pl.agh.jtp.lab03_home.Tester;
 
 import java.math.BigDecimal;
 
 /**
- * Visitor calculate medium salary of employees with role specified in constructor.
+ * Visitor calculate medium salary of employees with <b>specified role</b> (in constructor).
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
 public class MediumSalaryCalcVisitor implements Visitor {
@@ -26,29 +27,27 @@ public class MediumSalaryCalcVisitor implements Visitor {
 
     @Override
     public void visit(GroupManager manager) {
-        if(manager.getRole().equals(role)) {
-            numberOfMatchesEmployees++;
-            summarySalary = summarySalary.add(manager.getSalary());
-        }
+        updateMediumSalary(manager);
     }
 
     @Override
     public void visit(Developer developer) {
-        if(developer.getRole().equals(role)) {
-            numberOfMatchesEmployees++;
-            summarySalary = summarySalary.add(developer.getSalary());
-        }
+        updateMediumSalary(developer);
     }
 
     @Override
     public void visit(Tester tester) {
-        if(tester.getRole().equals(role)) {
+        updateMediumSalary(tester);
+    }
+
+    private void updateMediumSalary(IEmployee employee) {
+        if(employee.getRole().equals(role)) {
             numberOfMatchesEmployees++;
-            summarySalary = summarySalary.add(tester.getSalary());
+            summarySalary = summarySalary.add(employee.getSalary());
         }
     }
 
-    public BigDecimal getMediumSalary() {
+    public BigDecimal getMediumSalaryOfSpecifiedRole() {
         if(numberOfMatchesEmployees == 0) {
             return BigDecimal.ZERO;
         }

@@ -20,12 +20,7 @@ public class CompanyStructurePrintVisitor implements Visitor {
     @Override
     public void visit(GroupManager manager) {
         updateLevel();
-
-        for(int i = 0; i < level; i++) {
-            sb.append("|---");
-        }
-        sb.append(manager.getDescription())
-                .append("\n");
+        appendDescription(manager);
         goLevelUp();
 
         stack.add(numberOfEmployeesOfActualManager);
@@ -42,27 +37,23 @@ public class CompanyStructurePrintVisitor implements Visitor {
     @Override
     public void visit(Developer developer) {
         updateLevel();
-
-        for(int i = 0; i < level; i++) {
-            sb.append("|---");
-        }
-        sb.append(developer.getDescription())
-                .append("\n");
-
+        appendDescription(developer);
         numberOfEmployeesOfActualManager--;
     }
 
     @Override
     public void visit(Tester tester) {
         updateLevel();
+        appendDescription(tester);
+        numberOfEmployeesOfActualManager--;
+    }
 
+    private void appendDescription(IEmployee employee) {
         for(int i = 0; i < level; i++) {
             sb.append("|---");
         }
-        sb.append(tester.getDescription())
+        sb.append(employee.getDescription())
           .append("\n");
-
-        numberOfEmployeesOfActualManager--;
     }
 
     private void goLevelDown() {

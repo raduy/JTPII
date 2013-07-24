@@ -18,7 +18,7 @@ import static junit.framework.Assert.assertEquals;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class EmployeeCountVisitorTest {
-    private EmployeeCountVisitor visitor;
+    private EmployeeCountVisitor instance;
 
     @Mock
     Developer developer;
@@ -31,21 +31,23 @@ public class EmployeeCountVisitorTest {
 
     @Before
     public void setUp() {
-        visitor = new EmployeeCountVisitor();
+        instance = new EmployeeCountVisitor();
     }
 
     @After
     public void tearDown() {
-        visitor = null;
+        instance = null;
     }
 
     @Test
     public void visitMethodTest() {
-        visitor.visit(developer);
-        visitor.visit(tester);
-        visitor.visit(groupManager);
+        instance.visit(developer);
+        instance.visit(tester);
+        instance.visit(groupManager);
 
-        assertEquals(3, visitor.getCountOfEmployee());
-
+        assertEquals(3, instance.getCountOfEmployee());
+        assertEquals(1, instance.getCountOfDevelopers());
+        assertEquals(1, instance.getCountOfTesters());
+        assertEquals(1, instance.getCountOfManagers());
     }
 }

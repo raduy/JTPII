@@ -10,23 +10,41 @@ import pl.agh.jtp.lab03_home.Tester;
  */
 public class EmployeeCountVisitor implements Visitor {
     private int counter;
+    private int developersCounter;
+    private int testersCounter;
+    private int groupManagersCounter;
 
     @Override
     public void visit(Developer developer) {
+        developersCounter++;
         counter++;
     }
 
     @Override
     public void visit(GroupManager groupManager) {
+        groupManagersCounter++;
         counter++;
     }
 
     @Override
     public void visit(Tester tester) {
+        testersCounter++;
         counter++;
     }
 
     public int getCountOfEmployee() {
         return counter;
+    }
+
+    public int getCountOfDevelopers() {
+        return developersCounter;
+    }
+
+    public int getCountOfTesters() {
+        return testersCounter;
+    }
+
+    public int getCountOfManagers() {
+        return groupManagersCounter;
     }
 }
