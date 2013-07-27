@@ -38,7 +38,6 @@ public class MediumSalaryCalcVisitorTest {
         instance = new MediumSalaryCalcVisitor("Developer");
     }
 
-    @Ignore
     @Test
     public void visitMethodTest() { /*How to test it properly ? */
 
@@ -50,7 +49,7 @@ public class MediumSalaryCalcVisitorTest {
         assertNotSame(instance.getMediumSalaryOfSpecifiedRole(), BigDecimal.ZERO);
         assertEquals(BigDecimal.valueOf(5000), instance.getMediumSalaryOfSpecifiedRole());
 
-        /*
+
         //Second employee with matched role
         when(developer2.getRole()).thenReturn("Developer");
         when(developer2.getSalary()).thenReturn(BigDecimal.valueOf(7000));
@@ -66,6 +65,5 @@ public class MediumSalaryCalcVisitorTest {
 
         assertNotSame(instance.getMediumSalaryOfSpecifiedRole(), BigDecimal.ZERO);
         assertEquals(BigDecimal.valueOf(6000), instance.getMediumSalaryOfSpecifiedRole());
-        */
     }
 }

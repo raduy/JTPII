@@ -26,9 +26,8 @@ public class CompanyStructurePrintVisitor implements Visitor {
         stack.add(numberOfEmployeesOfActualManager);
         numberOfEmployeesOfActualManager = 0;
 
-        Iterator<IEmployee> it = manager.iterator();
-        while(it.hasNext()) {
-            if(!(it.next() instanceof IManager)) {
+        for(IEmployee employee : manager) {
+            if(!(employee instanceof IManager)) {
                 numberOfEmployeesOfActualManager++;
             }
         }

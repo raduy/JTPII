@@ -20,7 +20,7 @@ public class CompanyIterator implements Iterator<IEmployee> {
 
     @Override
     public boolean hasNext() {
-        return (stack.isEmpty()) && (!current.hasNext());
+        return (!stack.isEmpty()) || (current.hasNext());
     }
 
     @Override

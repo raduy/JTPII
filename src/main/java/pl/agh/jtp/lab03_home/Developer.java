@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 /**
  * @author Łukasz Raduj <raduj.lukasz@gmail.com>
  */
-public class Developer extends AbstractEmployee {
+public class Developer extends AbstractEmployee implements IEmployee {
 
     /**
      *

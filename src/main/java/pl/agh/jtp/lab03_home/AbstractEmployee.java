@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 /**
  * @author Łukasz Raduj <raduj.lukasz@gmail.com>
  */
-abstract class AbstractEmployee implements IEmployee {
+public abstract class AbstractEmployee implements IEmployee {
     private final String name;
     private final String role;
     private BigDecimal salary = BigDecimal.valueOf(5000);
@@ -101,6 +101,5 @@ abstract class AbstractEmployee implements IEmployee {
 
         return true;
     }
-
 }
 

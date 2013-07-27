@@ -99,6 +99,10 @@ public class Company extends AbstractCollection<IEmployee> implements Collection
         return new CompanyIterator(this);
     }
 
+    public Iterator<IEmployee> iterator(Predicate<IEmployee> predicate) {
+        return new PredicateIterator(this.iterator(), predicate);
+    }
+
     @Override
     public boolean add(IEmployee employee) {
         IManager manager = employmentStrategy.chooseManger(this, employee);

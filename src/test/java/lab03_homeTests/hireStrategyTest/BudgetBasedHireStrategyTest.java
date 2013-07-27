@@ -6,14 +6,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import pl.agh.jtp.lab03_home.Developer;
 import pl.agh.jtp.lab03_home.IEmployee;
 import pl.agh.jtp.lab03_home.IManager;
 import pl.agh.jtp.lab03_home.hireStrategy.BudgetBasedHireStrategy;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -27,7 +26,7 @@ import static org.mockito.Mockito.when;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class BudgetBasedHireStrategyTest {
-    private BudgetBasedHireStrategy hireStrategy;
+    private BudgetBasedHireStrategy instance;
 
     @Mock
     IManager manager;
@@ -43,16 +42,12 @@ public class BudgetBasedHireStrategyTest {
 
     @Before
     public void setUp() {
-        hireStrategy = new BudgetBasedHireStrategy(BigDecimal.valueOf(20000));
-    }
-
-    @After
-    public void tearDown() {
-        hireStrategy = null;
+        instance = new BudgetBasedHireStrategy(BigDecimal.valueOf(20000));
     }
 
     @Test
     public void canHireMethodTest() {
+        //given
         /*partial mock*/
         List<IEmployee> employees = spy(new CopyOnWriteArrayList<IEmployee>());
         Iterator<IEmployee> employeeIterator = employees.iterator();
@@ -66,9 +61,11 @@ public class BudgetBasedHireStrategyTest {
         when(employee2.getSalary()).thenReturn(BigDecimal.valueOf(2000));
         when(employee3.getSalary()).thenReturn(BigDecimal.valueOf(10000));
 
+        //when
         when(manager.iterator()).thenReturn(employeeIterator);
 
-        assertTrue(hireStrategy.canHire(manager));
+        //then
+        assertTrue(instance.canHire(manager));
 
     }
 }
