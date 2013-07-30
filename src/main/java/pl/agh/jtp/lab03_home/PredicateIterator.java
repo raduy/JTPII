@@ -4,8 +4,11 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
+ * <pre>
  * This iterator returns next elements matching the test from Predicate.
  * It's a decorator(using composition) of iterator given in constructor.
+ * Predicate's method apply() can't return true for null. Then hasNext() returns false.
+ * </pre>
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
 public class PredicateIterator<T> implements Iterator<T> {
@@ -42,8 +45,12 @@ public class PredicateIterator<T> implements Iterator<T> {
 
     private void updateBuffer() {
         buffer = null;
-        while (!predicate.apply(buffer) && iterator.hasNext()) {
-            buffer = iterator.next();
+        while(iterator.hasNext()) {
+            T temp = iterator.next();
+            if(predicate.apply(temp)){
+                buffer = temp;
+                break;
+            }
         }
     }
 

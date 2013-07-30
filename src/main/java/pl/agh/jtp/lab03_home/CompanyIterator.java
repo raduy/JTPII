@@ -5,16 +5,15 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 /**
- * Iterator return employees in Deep First Search order.
- * @author Lukasz Raduj <raduj.lukasz@gmail.com>
- */
+* Iterator return employees in Deep First Search order.
+* @author Lukasz Raduj <raduj.lukasz@gmail.com>
+*/
+
 public class CompanyIterator implements Iterator<IEmployee> {
-    private final Company company;
     private final LinkedList<Iterator<IEmployee>> stack = new LinkedList<Iterator<IEmployee>>();
     private Iterator<IEmployee> current;
 
     public CompanyIterator(Company company) {
-        this.company = company;
         current = company.getCEO().iterator();
     }
 
@@ -29,7 +28,7 @@ public class CompanyIterator implements Iterator<IEmployee> {
             IEmployee employee = current.next();
             if(employee instanceof IManager) {
                 IManager manager = (IManager) employee;
-                if(current.hasNext()) {     //if something last in current iterator put it on the stack, now there are no empty lists on the stack
+                if(current.hasNext()) {
                     push(current);
                 }
                 current = manager.iterator();
@@ -39,10 +38,9 @@ public class CompanyIterator implements Iterator<IEmployee> {
         } else {
             if(!stack.isEmpty()) {
                 current = pop();
-                next();
+                return next();
             }
         }
-
         throw new NoSuchElementException();
     }
 
@@ -58,4 +56,5 @@ public class CompanyIterator implements Iterator<IEmployee> {
     private Iterator<IEmployee> pop() {
         return stack.pollLast();
     }
+
 }
