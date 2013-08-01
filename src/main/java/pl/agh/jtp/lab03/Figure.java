@@ -8,6 +8,13 @@ package pl.agh.jtp.lab03;
  */
 public interface Figure {
     Color getColor();
+
     double getArea();
+
+    /**
+     * Returns figure with the same color and two times bigger area.
+     * @return
+     */
+    Figure getDoubledSizeFigure();
 
 }

@@ -23,6 +23,11 @@ public class Triangle extends AbstractFigure {
     }
 
     @Override
+    public Figure getDoubledSizeFigure() {
+        return new Triangle(Math.sqrt(2)*a, Math.sqrt(2)*h, getColor());
+    }
+
+    @Override
     public int hashCode() {
         int result = super.hashCode();
         long temp;

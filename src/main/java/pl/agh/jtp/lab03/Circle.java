@@ -18,6 +18,11 @@ public class Circle extends AbstractFigure {
     }
 
     @Override
+    public Figure getDoubledSizeFigure() {
+        return new Circle(Math.sqrt(2)*r, getColor());
+    }
+
+    @Override
     public boolean equals(Object o) {
         if(this == o) {
             return true;
@@ -54,7 +59,7 @@ public class Circle extends AbstractFigure {
 
     @Override
     public int compareTo(AbstractFigure abstractFigure) {
-        Double temp = new Double(getArea());
+        Double temp = getArea();
         return temp.compareTo(abstractFigure.getArea());
     }
 }

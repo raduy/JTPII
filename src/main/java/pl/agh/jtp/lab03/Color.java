@@ -8,9 +8,9 @@ public enum Color {
     BLUE(0, 255, 0),
     GREEN(0, 0, 255);
 
-    public final int r;
-    public final int b;
-    public final int g;
+    private final int r;
+    private final int b;
+    private final int g;
 
     private Color(int r, int b, int g) {
         if(r > 255 || b > 255 || g > 255)

@@ -31,6 +31,11 @@ public class Rectangle extends AbstractFigure {
     }
 
     @Override
+    public Figure getDoubledSizeFigure() {
+        return new Rectangle(Math.sqrt(2)*a, Math.sqrt(2)*b, getColor());
+    }
+
+    @Override
     public int hashCode() {
         int result = super.hashCode();
         long temp;
