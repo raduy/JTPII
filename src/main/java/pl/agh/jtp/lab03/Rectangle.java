@@ -35,6 +35,10 @@ public class Rectangle extends AbstractFigure {
         return new Rectangle(Math.sqrt(2)*a, Math.sqrt(2)*b, getColor());
     }
 
+    public Color getColor() {
+        return getColor();
+    }
+
     @Override
     public int hashCode() {
         int result = super.hashCode();

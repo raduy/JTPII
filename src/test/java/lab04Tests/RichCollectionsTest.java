@@ -1,24 +1,27 @@
 package lab04Tests;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import pl.agh.jtp.lab03.Circle;
-import pl.agh.jtp.lab03.Figure;
-import pl.agh.jtp.lab03.Rectangle;
-import pl.agh.jtp.lab03.Triangle;
+import pl.agh.jtp.lab03.*;
 import pl.agh.jtp.lab_04.Function;
+import pl.agh.jtp.lab_04.Predicate;
+import pl.agh.jtp.lab03.Color;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Map;
 
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.booleanThat;
 import static org.mockito.Mockito.when;
 import static pl.agh.jtp.lab_04.RichCollections.filter;
 import static pl.agh.jtp.lab_04.RichCollections.map;
+import static pl.agh.jtp.lab_04.RichCollections.groupBy;
 
 /**
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
@@ -145,11 +148,6 @@ public class RichCollectionsTest {
         when(rectangle.getDoubledSizeFigure()).thenReturn(doubledSizeRectangle);
         when(triangle.getDoubledSizeFigure()).thenReturn(doubledSizeTriangle);
 
-        when(doubledSizeCircle1.getArea()).thenReturn(2.);
-        when(doubledSizeCircle2.getArea()).thenReturn(4.);
-        when(doubledSizeRectangle.getArea()).thenReturn(6.);
-        when(doubledSizeTriangle.getArea()).thenReturn(8.);
-
         //when
         Collection<Figure> doubledSizeCollection = map(collection, new Function<Figure, Figure>() {
             @Override
@@ -164,5 +162,102 @@ public class RichCollectionsTest {
         assertTrue(doubledSizeCollection.contains(doubledSizeCircle2));
         assertTrue(doubledSizeCollection.contains(doubledSizeRectangle));
         assertTrue(doubledSizeCollection.contains(doubledSizeTriangle));
+    }
+
+    @Test
+    public void filterByConditionShouldReturnEmptyCollectionWhenGivenIsEmpty() {
+        //given
+        collection = Collections.emptyList();
+
+        //when
+        Collection<Figure> filteredCollection = filter(collection, new Predicate<Figure>() {
+            @Override
+            public boolean apply(Figure element) {
+                return element.getColor().equals(Color.BLUE);
+            }
+        });
+
+        //then
+        assertTrue(filteredCollection.isEmpty());
+    }
+
+    @Test
+    public void filterByRedColorShouldReturnOnlyRedFigures() {
+        //given
+        collection.add(circle1);
+        collection.add(rectangle);
+        collection.add(triangle);
+
+        when(circle1.getColor()).thenReturn(Color.GREEN);
+        when(rectangle.getColor()).thenReturn(Color.RED);
+        when(triangle.getColor()).thenReturn(Color.BLUE);
+
+        //when
+        Collection<Figure> filteredCollection = filter(collection, new Predicate<Figure>() {
+            @Override
+            public boolean apply(Figure element) {
+                return element.getColor().equals(Color.RED);
+            }
+        });
+
+        //then
+        assertEquals(1, filteredCollection.size());
+        assertTrue(filteredCollection.contains(rectangle));
+    }
+
+    @Test
+    public void groupByShouldCreateOneElementMapWhenAllGivenElementsHaveSameColor() {
+        //given
+        collection.add(circle1);
+        collection.add(rectangle);
+        collection.add(triangle);
+
+        when(circle1.getColor()).thenReturn(Color.BLUE);
+        when(rectangle.getColor()).thenReturn(Color.BLUE);
+        when(triangle.getColor()).thenReturn(Color.BLUE);
+
+        //when
+        Map<Color, Collection<Figure>> byColorMap = groupBy(collection, new Function<Figure, Color>() {
+            @Override
+            public Color apply(Figure arg) {
+                return arg.getColor();
+            }
+        });
+
+        //then
+        assertEquals(1, byColorMap.size());
+        assertTrue(byColorMap.containsKey(Color.BLUE));
+        assertTrue(byColorMap.get(Color.BLUE).contains(circle1));
+        assertTrue(byColorMap.get(Color.BLUE).contains(rectangle));
+        assertTrue(byColorMap.get(Color.BLUE).contains(triangle));
+    }
+
+    @Test
+    public void groupByShouldMapGivenMapInOrderOfAreaInThreeEntryMap() {
+        //given
+        collection.add(circle1);
+        collection.add(circle2);
+        collection.add(rectangle);
+        collection.add(triangle);
+
+        when(circle1.getArea()).thenReturn(1.);
+        when(circle2.getArea()).thenReturn(3.);   // same
+        when(rectangle.getArea()).thenReturn(3.); // area
+        when(triangle.getArea()).thenReturn(4.);
+
+        //when
+        Map<Double, Collection<Figure>> areaMap = groupBy(collection, new Function<Figure, Double>() {
+            @Override
+            public Double apply(Figure arg) {
+                return arg.getArea();
+            }
+        });
+
+        //then
+        assertEquals(3, areaMap.size());
+        assertTrue(areaMap.get(1.).contains(circle1));
+        assertTrue(areaMap.get(3.).contains(rectangle));
+        assertTrue(areaMap.get(3.).contains(circle2));
+        assertTrue(areaMap.get(4.).contains(triangle));
     }
 }

@@ -1,6 +1,6 @@
 package pl.agh.jtp.lab03;
 
-public class Triangle extends AbstractFigure {
+public class Triangle extends AbstractFigure implements Figure {
     private final double a;
     private final double h;
 
@@ -25,6 +25,10 @@ public class Triangle extends AbstractFigure {
     @Override
     public Figure getDoubledSizeFigure() {
         return new Triangle(Math.sqrt(2)*a, Math.sqrt(2)*h, getColor());
+    }
+
+    public Color getColor() {
+        return getColor();
     }
 
     @Override

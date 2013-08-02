@@ -22,6 +22,10 @@ public class Circle extends AbstractFigure {
         return new Circle(Math.sqrt(2)*r, getColor());
     }
 
+    public Color getColor() {
+        return getColor();
+    }
+
     @Override
     public boolean equals(Object o) {
         if(this == o) {
