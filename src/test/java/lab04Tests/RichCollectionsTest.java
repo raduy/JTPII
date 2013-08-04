@@ -5,6 +5,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
 import pl.agh.jtp.lab03.*;
 import pl.agh.jtp.lab_04.Function;
@@ -18,6 +19,7 @@ import java.util.Map;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.booleanThat;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 import static pl.agh.jtp.lab_04.RichCollections.filter;
 import static pl.agh.jtp.lab_04.RichCollections.map;
@@ -182,6 +184,27 @@ public class RichCollectionsTest {
     }
 
     @Test
+    public void mapByFunctionShouldNotMergeSameElements() {
+        //given
+        Integer integer1 = 6,
+                integer2 = 6;
+
+        Collection<Integer> intCollection = new ArrayList<Integer>();
+        intCollection.add(integer1);
+        intCollection.add(integer2);
+
+        //when
+         Collection<Double> mappedIntCollection = map(intCollection, new Function<Integer, Double>() {
+             @Override
+             public Double apply(Integer arg) {
+                 return arg.doubleValue();
+             }
+         });
+
+        //then
+        assertEquals(2, mappedIntCollection.size());
+    }
+    @Test
     public void filterByRedColorShouldReturnOnlyRedFigures() {
         //given
         collection.add(circle1);
@@ -260,4 +283,5 @@ public class RichCollectionsTest {
         assertTrue(areaMap.get(3.).contains(circle2));
         assertTrue(areaMap.get(4.).contains(triangle));
     }
+
 }

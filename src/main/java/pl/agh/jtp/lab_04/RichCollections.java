@@ -19,11 +19,11 @@ public class RichCollections<A, B> {
      * @return  Mapped Collection<B>
      */
     public static  <A, B> Collection<B> map(Collection<A> collection, Function<A, B> function) {
-        Map<A, B> result = new HashMap<A, B>();
+        Collection<B> result = new ArrayList<B>();
         for(A element : collection) {
-            result.put(element, function.apply(element));
+            result.add(function.apply(element));
         }
-        return result.values();
+        return result;
     }
 
 
