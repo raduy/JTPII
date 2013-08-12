@@ -6,12 +6,14 @@ import pl.agh.jtp.lab05.Song;
 import pl.agh.jtp.lab05.SongPersistentManger;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 /**
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
@@ -36,7 +38,12 @@ public class SongPersistentMangerTest {
         File songsFile = new File("songsTest.txt");
 
         //when
-        Collection<Song> songs = SongPersistentManger.getSongsCollectionFromFile(songsFile);
+        Collection<Song> songs = null;
+        try {
+            songs = SongPersistentManger.getSongsCollectionFromFile(songsFile);
+        } catch (IOException e) {
+            fail(e.getMessage());
+        }
 
         //then
         assertEquals("[The Dragon Lies Bleeding - HammerFall duration=263000, " +
@@ -52,7 +59,11 @@ public class SongPersistentMangerTest {
         Collection<Song> songs = new ArrayList<Song>(Arrays.asList(song1, song2, song3));
 
         //when
-        SongPersistentManger.saveSongCollectionIntoFile(songs, "songs.out");
+        try {
+            SongPersistentManger.saveSongCollectionIntoFile(songs, "songs.out");
+        } catch (IOException e) {
+            fail(e.getMessage());
+        }
 
         //then
         //empty
@@ -64,7 +75,12 @@ public class SongPersistentMangerTest {
         String file = "songs.out";
 
         //when
-        Collection<Song> songs = SongPersistentManger.readSongCollectionFromFile(file);
+        Collection<Song> songs = null;
+        try {
+            songs = SongPersistentManger.readSongCollectionFromFile(file);
+        } catch (IOException e) {
+            fail(e.getMessage());
+        }
 
         //then
         assertNotNull(songs);
@@ -72,5 +88,26 @@ public class SongPersistentMangerTest {
         assertEquals("[The Ones - One duration=999, " +
                 "The Twos - Two duration=999, " +
                 "The Threes - Three duration=999]", songs.toString());
+    }
+
+    @Test
+    public void shouldAcceptAllAllowedSeparatingChars() {
+        //given
+        File file = new File("songsTestWithSemicolonAndDots");
+
+        //when
+        Collection<Song> songs = null;
+        try {
+            songs = SongPersistentManger.getSongsCollectionFromFile(file);
+        } catch (IOException e) {
+            fail(e.getMessage());
+        }
+
+        //then
+        assertEquals("[The Dragon Lies Bleeding - HammerFall duration=263000, " +
+                "The Metal Age - HammerFall duration=269000, " +
+                "Hammerfall - HammerFall duration=287000, " +
+                "I Believe - HammerFall duration=294000, " +
+                "Child Of The Damned - HammerFall duration=223000]", songs.toString());
     }
 }

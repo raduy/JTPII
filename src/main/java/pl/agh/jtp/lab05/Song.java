@@ -1,23 +1,25 @@
 package pl.agh.jtp.lab05;
 
-import com.google.common.base.Preconditions;
-
 import java.io.Serializable;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Class simply represent a song.
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
 public class Song implements Serializable {
+    public static final long serialVersionUID = - 6723543235432538901L;
+
     private final String title;
     private final String artist;
     private final int duration;
 
     public Song(String artist, String title, int duration) {
-        Preconditions.checkNotNull(artist, "Song must have an artist!");
-        Preconditions.checkNotNull(title, "Song must have a title!");
-        this.artist = artist;
-        this.title = title;
+        this.artist = checkNotNull(artist, "Song must have an artist!");
+        this.title = checkNotNull(title, "Song must have a title!");
+        checkArgument(duration > 0, "Song duration must be positive! %s", duration);
         this.duration = duration;
     }
 

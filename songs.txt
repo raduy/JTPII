@@ -1,0 +1,586 @@
+Ecstasy of Gold;Metallica;150000
+Call of Ktulu;Metallica;574000
+Master of Puppets;Metallica;535000
+Of Wolf and Man;Metallica;259000
+Thing That Should Not Be;Metallica;447000
+Fuel;Metallica;276000
+Is Love;White Lies;292000
+Strangers;White Lies;324000
+Bigger Than Us;White Lies;283000
+Peace and Quiet;White Lies;354000
+Streetlights;White Lies;300000
+Holy Ghost;White Lies;262000
+Turn The Bells;White Lies;304000
+The Power and The Glory;White Lies;313000
+Bad Love;White Lies;237000
+Come Down;White Lies;309000
+Death;White Lies;301000
+To Lose My Life;White Lies;191000
+A Place To Hide;White Lies;302000
+Fifty On Our Foreheads;White Lies;261000
+A Storm Is Coming;Howard Shore;172000
+Hope and Memory;Howard Shore;105000
+Minas Tirith - Ben del Maestro;Howard Shore;217000
+The White Tree;Howard Shore;205000
+The Steward of Gondor - Billy Boyd;Howard Shore;233000
+Minas Morgul;Howard Shore;118000
+The Ride of the Rohirrim;Howard Shore;128000
+Twilight and Shadow - Renee Fleming;Howard Shore;210000
+Cirith Ungol;Howard Shore;104000
+Anduril;Howard Shore;155000
+Shelob's Lair;Howard Shore;247000
+Ash and Smoke;Howard Shore;205000
+The Fields of the Pelennor;Howard Shore;206000
+Hope Fails;Howard Shore;140000
+The Black Gate Opens - James Galway;Howard Shore;241000
+The End of All Things - Renee Fleming;Howard Shore;312000
+The Return of the King - Viggo Mortensen;Howard Shore;614000
+The Grey Havens - James Galway;Howard Shore;359000
+Into the West - Annie Lennox;Howard Shore;347000
+Unfinished Business;White Lies;260000
+E.S.T.;White Lies;303000
+From The Stars;White Lies;293000
+Farewell To The Fairground;White Lies;259000
+Nothing To Give;White Lies;252000
+The Price Of Love;White Lies;278000
+Memory Remains;Metallica;282000
+Hero of the Day;Metallica;285000
+Devil's Dance;Metallica;326000
+No Leaf Clover;Metallica;343000
+Bleeding Me;Metallica;541000
+Nothing Else Matters;Metallica;406000
+Until It Sleeps;Metallica;270000
+For Whom the Bell Tolls;Metallica;292000
+Human;Metallica;260000
+Wherever I May Roam;Metallica;421000
+Outlaw Torn;Metallica;599000
+Sad But True;Metallica;346000
+One;Metallica;473000
+Enter Sandman;Metallica;459000
+Battery;Metallica;444000
+The Memory Remains;Metallica;279000
+The Unforgiven II;Metallica;397000
+Damage Case;Metallica;220000
+Damage Inc.;Metallica;332000
+Die, Die My Darling;Metallica;147000
+Disposable Heroes;Metallica;497000
+Don't Tread On Me;Metallica;241000
+Dyers Eve;Metallica;313000
+Enter Sandman;Metallica;334000
+Eye Of The Beholder;Metallica;390000
+Fade To Black;Metallica;415000
+Free Speech For The Dumb;Metallica;156000
+Helpless;Metallica;399000
+Holier Than Thou;Metallica;229000
+It's Electric;Metallica;214000
+Killing Time;Metallica;184000
+Last Caress / Green Hell;Metallica;212000
+Loverman;Metallica;473000
+Mercyful Fate;Metallica;670000
+The More I See;Metallica;289000
+The Prince;Metallica;265000
+The Shortest Straw;Metallica;396000
+The Small Hours;Metallica;402000
+The Struggle Within;Metallica;236000
+The Thing That Should Not Be;Metallica;396000
+The Wait;Metallica;295000
+Through The Never;Metallica;243000
+Too Late Too Late;Metallica;193000
+Tuesday's Gone;Metallica;544000
+Turn The Page;Metallica;367000
+Amaranth;Nightwish;237000
+Reach (Amaranth Demo Version);Nightwish;237000
+Eva (Orchestral Version);Nightwish;268000
+While Your Lips Are Still Red;Nightwish;258000
+Amaranth (Orchestral Version);Nightwish;231000
+Eva (Demo Version);Nightwish;258000
+Elvinpath;Nightwish;277000
+Beauty And The Beast;Nightwish;382000
+The Carpenter;Nightwish;355000
+Astral Romance;Nightwish;310000
+Angels Fall First;Nightwish;333000
+Tutankhamen;Nightwish;329000
+Nymphomaniac Fantasia;Nightwish;285000
+Know Why The Nightingale Sings;Nightwish;253000
+Lappi (Lapland): I. Eramaajarvi;Nightwish;135000
+Lappi (Lapland): II. Witchdrums;Nightwish;79000
+Lappi (Lapland): III. This Moment Is Eternity;Nightwish;192000
+Lappi (Lapland): Etiainen;Nightwish;154000
+A Return to the Sea;Nightwish;347000
+Once Upon a Troubadour;Nightwish;319000
+Bless The Child;Nightwish;372000
+End Of All Hope;Nightwish;235000
+Dead To The World;Nightwish;259000
+Ever Dream;Nightwish;286000
+Slaying The Dreamer;Nightwish;271000
+Forever Yours;Nightwish;230000
+Ocean Soul;Nightwish;254000
+Always will be;HammerFall;290000
+Secrets;HammerFall;366000
+Blood Bound;HammerFall;229000
+Fury Of The Wild;HammerFall;285000
+Hammer Of Justice;HammerFall;278000
+Never Ever;HammerFall;246000
+Born To Rule;HammerFall;249000
+The Templar Flame;HammerFall;221000
+Imperial;HammerFall;150000
+Take The Black;HammerFall;287000
+Knights Of The 21st Century;HammerFall;739000
+Riders on the storm;HammerFall;274000
+Hearts on fire;HammerFall;231000
+On the edge of honour;HammerFall;289000
+Crimson thunder;HammerFall;305000
+Lore of the arcane;HammerFall;87000
+Trailblazers;HammerFall;279000
+Dreams come true;HammerFall;243000
+Angel of mercy;HammerFall;338000
+The Unforgiving Blade;HammerFall;222000
+In memoriam;HammerFall;262000
+Hero's Return;HammerFall;323000
+The Dragon Lies Bleeding;HammerFall;263000
+The Metal Age;HammerFall;269000
+Hammerfall;HammerFall;287000
+I Believe;HammerFall;294000
+Child Of The Damned;HammerFall;223000
+Steel Meets Steel;HammerFall;242000
+Stone Cold;HammerFall;343000
+Unchained;HammerFall;338000
+Glory To The Brave;HammerFall;440000
+Heeding the Call;HammerFall;261000
+The Metal Age (Live);HammerFall;265000
+Steel meets steel (Live);HammerFall;274000
+Stone Cold (Live);HammerFall;419000
+Eternal Dark (Picture cover);HammerFall;190000
+Storytime;Nightwish;325000
+I Want Out;HammerFall;277000
+At The End Of The Rainbow;HammerFall;246000
+Man On The Silver Mountain;HammerFall;203000
+The Fallen One;HammerFall;263000
+Heeding The Call;HammerFall;270000
+Legacy Of Kings;HammerFall;253000
+Let The Hammer Fall;HammerFall;257000
+Dreamland;HammerFall;342000
+Remember Yesterday;HammerFall;305000
+At The End Of The Rainbow;HammerFall;246000
+Back To Back;HammerFall;219000
+Stronger Than All;HammerFall;270000
+Warriors Of Faith;HammerFall;285000
+The Fallen One;HammerFall;264000
+Any Means Necessary;HammerFall;217000
+Life is Now;HammerFall;285000
+Punish and Enslave;HammerFall;239000
+Legion;HammerFall;338000
+Between Two Worlds;HammerFall;330000
+Hallowed Be My Name;HammerFall;238000
+Something for the Ages;HammerFall;306000
+No Sacrifice, No Victory;HammerFall;214000
+Bring the Hammer Down;HammerFall;223000
+One of A Kind;HammerFall;377000
+My Sharona;HammerFall;237000
+Templars of Steel;HammerFall;324000
+Keep the Flame Burning;HammerFall;277000
+Renegade;HammerFall;264000
+Living in Victory;HammerFall;281000
+Always Will Be;HammerFall;290000
+The Way of the Warrior;HammerFall;245000
+Destined for Glory;HammerFall;309000
+The Champion;HammerFall;296000
+Raise the Hammer;HammerFall;201000
+A Legend Reborn;HammerFall;307000
+The Abyss;HammerFall;133000
+Last Man Standing;HammerFall;270000
+Hammerfall V2.0.07;HammerFall;286000
+The Dragon Lies Bleeding;HammerFall;262000
+Steel Meets Steel;HammerFall;240000
+Glory To The Brave;HammerFall;439000
+Heeding the Call;HammerFall;270000
+At the End of the Rainbow;HammerFall;246000
+Legacy Of Kings;HammerFall;252000
+Let The Hammer Fall (Live);HammerFall;352000
+Templars Of Steel;HammerFall;326000
+Renegade;HammerFall;262000
+Always Will Be;HammerFall;291000
+Keep the Flame Burning;HammerFall;280000
+Riders Of The Storm;HammerFall;273000
+Hearts on Fire;HammerFall;231000
+Crimson Thunder;HammerFall;304000
+A Storm Is Coming;Howard Shore;172000
+Hope and Memory;Howard Shore;105000
+Minas Tirith - Ben del Maestro;Howard Shore;217000
+The White Tree;Howard Shore;205000
+The Steward of Gondor - Billy Boyd;Howard Shore;233000
+Minas Morgul;Howard Shore;118000
+The Ride of the Rohirrim;Howard Shore;128000
+Twilight and Shadow - Renee Fleming;Howard Shore;210000
+Cirith Ungol;Howard Shore;104000
+Anduril;Howard Shore;155000
+Shelob's Lair;Howard Shore;247000
+Ash and Smoke;Howard Shore;205000
+The Fields of the Pelennor;Howard Shore;206000
+Hope Fails;Howard Shore;140000
+The Black Gate Opens - James Galway;Howard Shore;241000
+The End of All Things - Renee Fleming;Howard Shore;312000
+The Return of the King - Viggo Mortensen;Howard Shore;614000
+The Grey Havens - James Galway;Howard Shore;359000
+Into the West - Annie Lennox;Howard Shore;347000
+Hero's Return;HammerFall;321000
+Blood Bound;HammerFall;228000
+Secrets;HammerFall;366000
+Fury Of the Wild;HammerFall;284000
+Never Ever;HammerFall;246000
+Threshold;HammerFall;285000
+Natural High;HammerFall;255000
+Dark Wings, Dark Words;HammerFall;302000
+The Fire Burns Forever;HammerFall;201000
+Restless Soul;HammerFall;328000
+The Metal Age (Live_Bonus);HammerFall;264000
+Stone Cold (Live_Bonus);HammerFall;420000
+Threshold;HammerFall;285000
+The Fire Burns Forever;HammerFall;202000
+Rebel Inside;HammerFall;334000
+Natural High;HammerFall;255000
+Dark Wings, Dark Words;HammerFall;302000
+Howlin 'With The ' Pac;HammerFall;246000
+Shadow Empire;HammerFall;315000
+Carved In Stone;HammerFall;373000
+Reign Of The Hammer;HammerFall;170000
+Genocide;HammerFall;283000
+Titan;HammerFall;264000
+Natural High (Video Version);HammerFall;271000
+Feel For You;Nightwish;235000
+Dark Chest of Wonders;Nightwish;308000
+Planet Hell;Nightwish;285000
+Ever Dream;Nightwish;327000
+The Kinslayer;Nightwish;249000
+The Phantom of the Opera;Nightwish;312000
+Siren;Nightwish;293000
+Sleeping Sun;Nightwish;295000
+High Hopes;Nightwish;415000
+Bless the Child;Nightwish;385000
+Wishmaster;Nightwish;284000
+Slaying the Dreamer;Nightwish;305000
+Ave Maria;Gregorian;204000
+Silent Night;Gregorian;226000
+When A Child Is Born;Gregorian;237000
+Amazing Grace;Gregorian;191000
+The First Noel;Gregorian;212000
+In The Bleak Midinter;Gregorian;193000
+Pie Jesu;Gregorian;225000
+A Spaceman Came Travelling;Gregorian;284000
+O Come All Ye Faithful;Gregorian;230000
+Gloria In Exelsis;Gregorian;203000
+Footsteps In The Snow;Gregorian;249000
+Peace On Earth - Little Drummer Boy;Gregorian;169000
+Sweeter The Bells;Gregorian;208000
+Child In A Manger;Gregorian;201000
+Happy Xmas War Is Over;Gregorian;226000
+Auld Lang Syne;Gregorian;238000
+Brothers in arms;Gregorian;356000
+Seaborough fair;Gregorian;292000
+Tears in heaven;Gregorian;333000
+Be Quick Or Be Dead;Iron Maiden;203000
+Can I Play With Madness;Iron Maiden;211000
+Fear Of The Dark;Iron Maiden;436000
+Iron Maiden (Live);Iron Maiden;321000
+Running Free (Live);Iron Maiden;229000
+Still I'm sad;Gregorian;299000
+When a man loves a woman;Gregorian;294000
+Nothing else matters;Gregorian;375000
+Fade to grey;Gregorian;260000
+Losing my religion;Gregorian;352000
+The Crow, The Owl And The Dove;Nightwish;250000
+Vienna;Gregorian;304000
+The sound of silence;Gregorian;257000
+Sebastian;Gregorian;221000
+Don't give up;Gregorian;387000
+Save a prayer;Gregorian;294000
+I still haven't found what I'm looking for (Radio Edit);Gregorian;255000
+Voyage voyage;Gregorian;243000
+Rever;Gregorian;300000
+Instant de paix;Gregorian;262000
+The first time ever;Gregorian;359000
+In the air tonight;Gregorian;345000
+Bonny portmore;Gregorian;302000
+Hymn;Gregorian;367000
+Child in time;Gregorian;320000
+Everybody gotta learn;Gregorian;319000
+Wish you where here;Gregorian;332000
+Lady d'arbanville;Gregorian;286000
+Heaven can wait;Gregorian;353000
+Babylon;Gregorian;185000
+Stairway to heaven;Gregorian;486000
+The Gift;Gregorian;4614000
+Bridge Over Troubled Water;Gregorian;336000
+With Or Without You;Gregorian;393000
+Maid Of Orleans;Gregorian;311000
+Angels;Gregorian;340000
+Evening Falls;Gregorian;293000
+Find My Way Home;Gregorian;359000
+Imagine;Gregorian;310000
+For No One;Gregorian;231000
+Hide And Seek;Gregorian;316000
+World;Gregorian;255000
+High Hopes;Gregorian;425000
+Clocks;Gregorian;264000
+The End of Days;Gregorian;252000
+Heaven is a Place on Earth;Gregorian;239000
+Heroes;Gregorian;335000
+Comfortably numb;Gregorian;475000
+Send me an angel;Gregorian;295000
+Silent lucidity;Gregorian;379000
+Lady in black;Gregorian;356000
+The forest;Gregorian;308000
+A weakened soul;Gregorian;317000
+Lucky man;Gregorian;322000
+Stop crying your heart out;Gregorian;316000
+We love you;Gregorian;289000
+Boulevard of broken dreams;Gregorian;313000
+The unforgiven;Gregorian;460000
+I feel free;Gregorian;218000
+Join Me;Gregorian;308000
+Be;Gregorian;348000
+Blasphemous Rumours;Gregorian;268000
+Only You;Gregorian;273000
+Blue Monday;Gregorian;208000
+Sacrifice;Gregorian;348000
+Ordinary World;Gregorian;430000
+Fields Of Gold;Gregorian;269000
+Before The Dawn;Gregorian;292000
+I WonÂ´t Hold You;Gregorian;330000
+Wicked Game;Gregorian;353000
+Out Of The Cold;Gregorian;228000
+Join Me;Gregorian;249000
+Hurt;Gregorian;380000
+My immortal;Gregorian;326000
+The four horsemen;Gregorian;291000
+Unbeliever;Gregorian;258000
+Where the wild roses grow;Gregorian;291000
+Close my eyes forever;Gregorian;360000
+More;Gregorian;365000
+Uninvited;Gregorian;265000
+The raven;Gregorian;328000
+Gregorian anthem;Gregorian;318000
+Ave satani (The Omen);Gregorian;207000
+The end;Gregorian;124000
+In the shadows;Gregorian;271000
+Kuolema Tekee Taiteilijan;Nightwish;253000
+Nemo;Nightwish;286000
+Ghost Love Score;Nightwish;629000
+Stone People;Nightwish;249000
+Creek Marys Blood;Nightwish;519000
+Over the Hills and Far Away;Nightwish;326000
+Wish I Had an Angel;Nightwish;472000
+End Of All Hope;Nightwish;256000
+Dead to the World;Nightwish;282000
+10th Man Down;Nightwish;329000
+Is Love;White Lies;292000
+Strangers;White Lies;324000
+Bigger Than Us;White Lies;283000
+Peace and Quiet;White Lies;354000
+Streetlights;White Lies;300000
+Holy Ghost;White Lies;262000
+Turn The Bells;White Lies;304000
+The Power and The Glory;White Lies;313000
+Bad Love;White Lies;237000
+Come Down;White Lies;309000
+Death;White Lies;301000
+To Lose My Life;White Lies;191000
+A Place To Hide;White Lies;302000
+Fifty On Our Foreheads;White Lies;261000
+Unfinished Business;White Lies;260000
+E.S.T.;White Lies;303000
+From The Stars;White Lies;293000
+Farewell To The Fairground;White Lies;259000
+Taikatalvi;Nightwish;155000
+Storytime;Nightwish;322000
+Ghost River;Nightwish;328000
+Slow, Love, Slow;Nightwish;350000
+I Want My Tears Back;Nightwish;307000
+Scaretale;Nightwish;452000
+Arabesque;Nightwish;177000
+Turn Loose The Mermaids;Nightwish;260000
+Rest Calm;Nightwish;422000
+The Crow, The Owl And The Dove;Nightwish;250000
+Taikatalvi;Nightwish;155000
+Storytime;Nightwish;322000
+Ghost River;Nightwish;328000
+Slow, Love, Slow;Nightwish;350000
+I Want My Tears Back;Nightwish;307000
+Scaretale;Nightwish;452000
+Arabesque;Nightwish;177000
+Turn Loose The Mermaids;Nightwish;260000
+Rest Calm;Nightwish;422000
+The Crow, The Owl And The Dove;Nightwish;250000
+Last Ride Of The Day;Nightwish;272000
+Song Of Myself;Nightwish;817000
+Imaginaerum;Nightwish;378000
+Last Ride Of The Day;Nightwish;272000
+Nothing To Give;White Lies;252000
+The Price Of Love;White Lies;278000
+Slaying the Dreamer;Nightwish;293000
+Over the Hills and Far Away;Nightwish;362000
+Sleeping Sun;Nightwish;269000
+The Kinslayer;Nightwish;250000
+Come Cover Me;Nightwish;309000
+Eva;Nightwish;264000
+The Forever Moments;Nightwish;341000
+EtiĂ¤inen;Nightwish;181000
+The Kinslayer;Nightwish;253000
+She Is My Sin;Nightwish;289000
+Deep Silent Complete;Nightwish;265000
+The Pharaoh Sails To Orion;Nightwish;400000
+Come Cover Me;Nightwish;285000
+Wanderlust;Nightwish;274000
+Instrumental (Crimson Tide/Deep Blue Sea);Nightwish;209000
+Swanheart;Nightwish;236000
+Elvenpath;Nightwish;292000
+FantasMic part 3;Nightwish;205000
+Dead Boy's Poem;Nightwish;413000
+Sacrament Of Wilderness;Nightwish;306000
+Walking In The Air;Nightwish;310000
+Beauty And The Beast;Nightwish;401000
+Wishmaster;Nightwish;303000
+Bless The Child;Nightwish;372000
+Dead Boy's Poem;Nightwish;407000
+Deep Silent Complete;Nightwish;237000
+Elvenpath;Nightwish;278000
+Ever Dream;Nightwish;284000
+High Hopes;Nightwish;441000
+Nemo;Nightwish;274000
+Over The Hills And Far Away;Nightwish;300000
+Sacrament Of Wilderness;Nightwish;250000
+Sleeping Sun;Nightwish;265000
+Stargazers;Nightwish;266000
+The Kinslayer;Nightwish;239000
+Walking In The Air;Nightwish;327000
+Wishmaster;Nightwish;263000
+Wish I Had An Angel;Nightwish;243000
+Instrumental (Crimson Tide And Deep Blue Sea);Nightwish;209000
+Beauty Of The Beast;Nightwish;622000
+Feel For You;Nightwish;234000
+Slaying The Dreamer;Nightwish;272000
+The Phantom Of The Opera;Nightwish;249000
+Sleeping Sun;Nightwish;243000
+The Carpenter;Nightwish;359000
+Nymphomaniac Fantasia;Nightwish;286000
+Walking in the Air;Nightwish;327000
+Deep Silent Complete;Nightwish;236000
+Angels Fall First;Nightwish;334000
+Away;Nightwish;269000
+Sleepwalker;Nightwish;175000
+Dead Boy's Poem;Nightwish;408000
+Astral Romance;Nightwish;311000
+Etiainen;Nightwish;154000
+This Moment in Eternity;Nightwish;193000
+Swanheart;Nightwish;284000
+Eramaajarvi;Nightwish;137000
+Two for Tragedy;Nightwish;230000
+Stargazers;Nightwish;266000
+Gethsemane;Nightwish;320000
+Devil and The Deep Dark Ocean;Nightwish;285000
+Sacrament Of Wilderness;Nightwish;249000
+Passion And The Opera;Nightwish;288000
+Swanheart;Nightwish;284000
+Moondance;Nightwish;211000
+The Riddler;Nightwish;315000
+The Pharaoh Sails To Orion;Nightwish;387000
+Walking In The Air;Nightwish;326000
+Sleeping Sun;Nightwish;245000
+Nightquest;Nightwish;260000
+Dead To The World;Nightwish;260000
+End Of All Hope;Nightwish;234000
+Ocean Soul;Nightwish;254000
+Dark Chest Of Wonders;Nightwish;268000
+Wish I Had An Angel;Nightwish;246000
+Nemo;Nightwish;276000
+Planet Hell;Nightwish;278000
+Creek Mary?s Blood;Nightwish;509000
+The Siren;Nightwish;285000
+Dead Gardens;Nightwish;268000
+Romanticide;Nightwish;298000
+Ghost Love Score;Nightwish;602000
+Kuolema Tekee Taiteilijan;Nightwish;238000
+Higher Than Hope;Nightwish;335000
+Live To Tell The Tale (Bonus Track);Nightwish;302000
+Over The Hills And Far Away;Nightwish;304000
+Tenth Man Down;Nightwish;324000
+Away;Nightwish;273000
+Sacrament Of Wilderness (live);Nightwish;301000
+Walking In The Air (live);Nightwish;308000
+Wishmaster (live);Nightwish;284000
+Deep Silent Complete (live);Nightwish;277000
+Over the Hills and Far Away;Nightwish;300000
+She is My Sin;Nightwish;285000
+Stargazers;Nightwish;265000
+Away;Nightwish;269000
+Elvenpath;Nightwish;277000
+10th Man Down;Nightwish;320000
+The Carpenter;Nightwish;356000
+Two for Tragedy;Nightwish;230000
+Astral Romance;Nightwish;318000
+Wishmaster;Nightwish;262000
+Nymphomaniac Fantasia;Nightwish;286000
+Angels Fall First;Nightwish;332000
+Know Why the Nightingale Sings;Nightwish;252000
+Devil and the Deep Dark Ocean;Nightwish;285000
+Walking in the Air;Nightwish;328000
+Sleeping Sun;Nightwish;243000
+She Is My Sin;Nightwish;285000
+The Kinslayer;Nightwish;239000
+Come Cover Me;Nightwish;272000
+Wanderlust;Nightwish;288000
+Two For Tragedy;Nightwish;230000
+Wishmaster;Nightwish;263000
+Bare Grace Misery;Nightwish;219000
+Crownless;Nightwish;265000
+Deep Silent Complete;Nightwish;234000
+Dead Boy's Poem;Nightwish;407000
+FantasMic;Nightwish;504000
+Wishmaster;Nightwish;2428000
+Sleepwalker (Heavy Version);Nightwish;1600000
+Passion And The Opera (Edit Ve;Nightwish;1837000
+Nightquest;Nightwish;2351000
+A Return To The Sea;Nightwish;3047000
+Once Upon A Troubadour;Nightwish;2620000
+Welcome Home (Sanitarium);Metallica;387000
+Twisted Mind;Avantasia;373000
+The Scarecrow;Avantasia;675000
+Shelter From The Rain;Avantasia;371000
+Carry Me Over;Avantasia;235000
+What Kind Of Love;Avantasia;298000
+Another Angel Down;Avantasia;343000
+The Toy Master;Avantasia;383000
+Devil In The Belfry;Avantasia;282000
+Cry Just a Little;Avantasia;315000
+The End;Kings Of Leon;263000
+Radioactive;Kings Of Leon;206000
+Pyro;Kings Of Leon;250000
+Mary;Kings Of Leon;205000
+The Face;Kings Of Leon;208000
+The Immortals;Kings Of Leon;208000
+Back Down South;Kings Of Leon;241000
+Beach Side;Kings Of Leon;171000
+No Money;Kings Of Leon;185000
+Pony Up;Kings Of Leon;184000
+Birthday;Kings Of Leon;195000
+Mi Amigo;Kings Of Leon;246000
+Pickup Truck;Kings Of Leon;284000
+I Don't Believe in Your Love;Avantasia;332000
+Lost In Space;Avantasia;232000
+Wherever I May Roam;Metallica;405000
+Whiskey In The Jar;Metallica;305000
+Enter Sandman;Metallica;331000
+Sad But True;Metallica;324000
+Holier Than Thou;Metallica;228000
+The unforgiven;Metallica;387000
+The Unforgiven;Metallica;387000
+Wherever I May Roam;Metallica;404000
+Don't Tread On Me;Metallica;240000
+Through The Never;Metallica;243000
+Nothing else matters;Metallica;390000
+Nothing Else Matters;Metallica;388000
+Of wolf and man;Metallica;257000
+Of Wolf And Man;Metallica;257000
+God That Failed;Metallica;309000
+My Friend Of Misery;Metallica;408000
+Struggle Within;Metallica;234000

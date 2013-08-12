@@ -12,7 +12,7 @@ public class CountingBytesOutputStream extends OutputStream {
     private int counter;
     private OutputStream outputStream;
 
-    private static final Logger LOGGER = Logger.getLogger("CountingBytesOutputStream");
+    private static final Logger LOGGER = Logger.getLogger(CountingBytesOutputStream.class.getName());
 
     public CountingBytesOutputStream(OutputStream outputStream) {
         this.outputStream = outputStream;
@@ -26,6 +26,7 @@ public class CountingBytesOutputStream extends OutputStream {
 
     @Override
     public void close() throws IOException {
+        outputStream.close();
         LOGGER.info("OutputStream writes: " + counter + " bytes.");
     }
 }

@@ -11,38 +11,33 @@ public class SongPersistentManger {
 
     /**
      * <pre>
-     * Method assumed that file has pattern:
-     * ...
-     * title;artist;duration\n
-     * ...
-     * Throw RuntimeException when file doesn't exist, or it isn't possible to open it.
+     * Method assumed that file has CSV pattern (allowed separating chars are: [,;.])
      * </pre>
-     * @param path
-     * @return
+     * @param path Path to file
+     * @return  Collection of Songs created based on file.
+     * @throws IOException
      */
-    public static Collection<Song> getSongsCollectionFromFile(File path) {
-        Collection<Song> result = new ArrayList<Song>();
+    public static Collection<Song> getSongsCollectionFromFile(File path) throws IOException {
+        Collection<Song> result = new ArrayList<>();
 
-        try {
-            BufferedReader input = new BufferedReader(new FileReader(path));
-            try {
-                String songLine;
-                while((songLine = input.readLine()) != null){
-                    String[] songParameters = songLine.split(";");
+        try(BufferedReader input = new BufferedReader(new FileReader(path))) {
+            String songLine;
+            while((songLine = input.readLine()) != null){
+                String[] songParameters = songLine.split("[;,.]");
 
-                    String
-                            title = songParameters[0],
-                            artist = songParameters[1];
-                    int duration = Integer.parseInt(songParameters[2]);
+                String
+                    title = songParameters[0],
+                    artist = songParameters[1];
+                int duration = Integer.parseInt(songParameters[2].trim());
 
-                    Song song = new Song(title, artist, duration);
-                    result.add(song);
-                }
-            } finally {
-                input.close();
+                Song song = new Song(title, artist, duration);
+                result.add(song);
             }
+
+        } catch (FileNotFoundException e) {
+            throw new FileNotFoundException("Can't find file of given path");
         } catch (IOException e) {
-            throw new RuntimeException("Problem with opening file");
+            throw new IOException("Can't read from file");
         }
 
         return result;
@@ -50,21 +45,18 @@ public class SongPersistentManger {
 
     /**
      * Method write a collection of Songs into file using Serialization.
-     * Throw RuntimeException when something bad happened.
      * @param songs Collection of Songs
      * @param path String name of file which will be filled with Song Objects
+     * @throws IOException
      */
-    public static void saveSongCollectionIntoFile(Collection<Song> songs, String path) {
+    public static void saveSongCollectionIntoFile(Collection<Song> songs, String path) throws IOException {
 
-        try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(path));
-            try {
-                out.writeObject(songs);
-            } finally {
-                out.close();
-            }
+        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(path))) {
+            out.writeObject(songs);
+        }  catch (FileNotFoundException e) {
+            throw new FileNotFoundException("Can't find the file!");
         } catch (IOException e) {
-            throw new RuntimeException("Cannot serialize song collection");
+            throw new IOException("Can't write into file");
         }
     }
 
@@ -72,23 +64,20 @@ public class SongPersistentManger {
      * Reads a file and return a collection of Songs.
      * @param fileName File that contains serialized Songs.
      * @return Collection of Songs
+     * @throws IOException
      */
-    public static Collection<Song> readSongCollectionFromFile(String fileName) {
+    public static Collection<Song> readSongCollectionFromFile(String fileName) throws IOException {
         Collection<Song> songs;
-        try {
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName));
+        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName))) {
             try {
-                try {
-                    songs = (Collection<Song>) in.readObject();
-                } catch (ClassNotFoundException e) {
-                    throw new ClassCastException("Your object in file is not a Collection of Songs!");
-                }
-
-            } finally {
-                in.close();
+                songs = (Collection<Song>) in.readObject();
+            } catch (ClassNotFoundException e) {
+                throw new ClassCastException("Your object in file is not a Collection of Songs!");
             }
-        } catch(IOException e) {
-            throw new RuntimeException("Can't retrieve song collection form file!");
+        } catch (FileNotFoundException e) {
+            throw new FileNotFoundException("Can't find the file");
+        } catch (IOException e) {
+            throw new IOException("Can't read from file");
         }
 
         return songs;
