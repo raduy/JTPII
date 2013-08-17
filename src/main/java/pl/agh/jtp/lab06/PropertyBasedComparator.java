@@ -1,56 +1,54 @@
 package pl.agh.jtp.lab06;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Comparator;
 
 /**
- * Compare objects by the property field.
+ * Compare objects by the property.
+ * Object has a property when have a method getProperty()
+ * E.g.: when there are a method getName() property is name.
+ *
+ * @param <T>
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
-public class PropertyBasedComparator implements Comparator {
-    private final String property;
+public class PropertyBasedComparator<T> implements Comparator<T> {
+    private String propertyMethodName;
 
-    /**
-     * Constructor
-     * @param property Name of property field inside object.
-     */
     public PropertyBasedComparator(String property) {
-        this.property = property;
+        createPropertyMethodName(property);
+    }
+
+    private void createPropertyMethodName(String property) {
+        propertyMethodName = "get" + property.substring(0, 1).toUpperCase() + property.substring(1);
     }
 
     /**
      * {@inheritDoc}
-     * @throws IllegalArgumentException - if arguments have different class
-     * or there are no such filed in arguments objects or property field have different type
-     * or it isn't possible to get access to field.
      */
     @Override
-    public int compare(Object o1, Object o2) {
-        if(!(o1.getClass().equals(o2.getClass()))) {
-            throw new IllegalArgumentException("Your args should be the same class.");
-        }
+    @SuppressWarnings("unchcked") //is safe because before casting call there are an if control statement.
+    public int compare(T t1, T t2) {
 
+
+        Object property1;
+        Object property2;
         try {
-            Field propertyFieldO1 = o1.getClass().getDeclaredField(property);
-            Field propertyFieldO2 = o2.getClass().getDeclaredField(property);
-
-            if(!(propertyFieldO1.getType().equals(propertyFieldO2.getType()))) {
-                throw new IllegalArgumentException("Your args properties should be the same type.");
-            }
-
-            if(!propertyFieldO1.isAccessible()) {
-                propertyFieldO1.setAccessible(true);
-                propertyFieldO2.setAccessible(true);
-            }
-
-            Object property1 = propertyFieldO1.get(o1);
-            Object property2 = propertyFieldO2.get(o2);
-
-            return ((Comparable) property1).compareTo(property2);
-        } catch (NoSuchFieldException e) {
-            throw new IllegalArgumentException("You args don't have such property");
+            property1 = loadProperty(t1);
+            property2 = loadProperty(t2);
+        } catch (NoSuchMethodException e) {
+            throw new IllegalArgumentException("There are no such method with given property.");
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException("The underlying method thrown an exception.");
         } catch (IllegalAccessException e) {
-            throw new IllegalArgumentException("Can't get access to given property");
+            throw new IllegalArgumentException("Can't get access to property method.");
         }
+        if (!(property1 instanceof Comparable)) {
+            throw new IllegalArgumentException("Can't compare given objects - they don't implements Comparable interface");
+        }
+        return ((Comparable) property1).compareTo(property2);
+    }
+
+    private Object loadProperty(T object) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        return object.getClass().getMethod(propertyMethodName).invoke(object);
     }
 }

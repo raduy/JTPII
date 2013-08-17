@@ -9,6 +9,7 @@ import pl.agh.jtp.sm.StringManipulator;
  * Creates object on demand (when manipulate method is call).
  * StringManipulator class must be on CLASSPATH.
  * </pre>
+ *
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
 public class ClassPathStringManipulatorProxy implements IStringManipulator {
@@ -23,11 +24,12 @@ public class ClassPathStringManipulatorProxy implements IStringManipulator {
 
     /**
      * Method returns manipulated string given in Proxy constructor.
+     *
      * @return Manipulated string
      */
     @Override
     public String manipulate() {
-        if(stringManipulator == null) {
+        if (stringManipulator == null) {
             stringManipulator = new StringManipulator(stringForConstructor);
         }
         return stringManipulator.manipulate();

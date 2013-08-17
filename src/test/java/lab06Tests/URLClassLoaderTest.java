@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import pl.agh.jtp.sm.IStringManipulator;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -84,8 +83,7 @@ public class URLClassLoaderTest {
 
         //when
         try {
-            Constructor constructor =  type.getConstructor(String.class);
-            stringManipulator = (IStringManipulator) constructor.newInstance("Sample text");
+            stringManipulator = (IStringManipulator) type.getConstructor(String.class).newInstance("Sample text");
         } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             fail(e.getMessage());
         }
