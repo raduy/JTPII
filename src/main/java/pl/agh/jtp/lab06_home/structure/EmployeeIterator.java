@@ -1,12 +1,14 @@
-package pl.agh.jtp.lab03_home;
+package pl.agh.jtp.lab06_home.structure;
 
 import java.util.Iterator;
 import java.util.List;
 
-class EmployeeIterator implements Iterator<IEmployee> {
+public class EmployeeIterator implements Iterator<IEmployee> {
+    private final List<IEmployee> list;
     private final Iterator<IEmployee> iterator;
 
     public EmployeeIterator(List<IEmployee> list) {
+        this.list = list;
         this.iterator = list.iterator();
     }
 
