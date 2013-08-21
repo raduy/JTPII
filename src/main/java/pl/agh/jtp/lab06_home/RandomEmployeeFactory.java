@@ -6,6 +6,7 @@ import pl.agh.jtp.lab06_home.structure.people.Developer;
 import pl.agh.jtp.lab06_home.structure.people.GroupManager;
 import pl.agh.jtp.lab06_home.structure.people.Tester;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -21,7 +22,7 @@ public class RandomEmployeeFactory {
 
     private final static String[] testerRoles = {"Core Tester", "Web Flow Tester"};
 
-    private final static String[] managerRoles = {"CEO", "Project Manger"};
+    private final static String[] managerRoles = {"High Manger", "Project Manger"};
 
     private String getRandomName() {
         return names[random.nextInt(names.length)];
@@ -40,10 +41,11 @@ public class RandomEmployeeFactory {
     }
 
     public IEmployee getRandomEmployee() {
-        switch (random.nextInt(2)) {
+        switch (random.nextInt(3)) {
             case 0 : return new Developer(getRandomName(), getRandomRoleForDeveloper());
             case 1 : return new Tester(getRandomName(), getRandomRoleForTester());
-            default: return new GroupManager(getRandomName(), getRandomRoleForManger(), new TeamSizeHireStrategy(10));
+            default: return new GroupManager(getRandomName(), getRandomRoleForManger(),
+                    new TeamSizeHireStrategy(random.nextInt(5)));
         }
     }
 
@@ -54,5 +56,11 @@ public class RandomEmployeeFactory {
         }
 
         return result;
+    }
+
+    public static void main(String[] args) {
+        RandomEmployeeFactory employeeFactory = new RandomEmployeeFactory();
+        IEmployee[] employees = employeeFactory.getTableOfNRandomEmployees(10);
+        System.out.println(Arrays.toString(employees));
     }
 }

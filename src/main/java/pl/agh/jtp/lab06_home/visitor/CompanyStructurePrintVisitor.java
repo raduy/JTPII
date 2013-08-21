@@ -30,10 +30,11 @@ public class CompanyStructurePrintVisitor implements Visitor {
         numberOfEmployeesOfActualManager = 0;
 
         for(IEmployee employee : manager) {
-            if(!(employee instanceof IManager)) {
-                numberOfEmployeesOfActualManager++;
-            }
+            numberOfEmployeesOfActualManager++;
         }
+        int last = stack.pollLast();
+        last--;
+        stack.add(last);
     }
 
     @Override

@@ -1,5 +1,6 @@
-package pl.agh.jtp.lab06_home;
+package pl.agh.jtp.lab06_home.iterators;
 
+import pl.agh.jtp.lab06_home.Company;
 import pl.agh.jtp.lab06_home.structure.IEmployee;
 import pl.agh.jtp.lab06_home.structure.IManager;
 

@@ -46,9 +46,9 @@ public class GroupManager extends AbstractEmployee implements IManager, Iterable
         if(! canHire(employee)) {
             return false;
         }
-        if(employees.contains(employee)) {
-            return false;
-        }
+//        if(employees.contains(employee)) {
+//            return false;
+//        }
 
         employees.add(employee);
         employee.setSupervisor(this);

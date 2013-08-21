@@ -1,35 +1,37 @@
 package pl.agh.jtp.lab06_home;
 
 import pl.agh.jtp.lab06_home.employmentStrategy.EmploymentStrategy;
+import pl.agh.jtp.lab06_home.iterators.CompanyIterator;
+import pl.agh.jtp.lab06_home.iterators.Predicate;
+import pl.agh.jtp.lab06_home.iterators.PredicateIterator;
 import pl.agh.jtp.lab06_home.structure.IEmployee;
 import pl.agh.jtp.lab06_home.structure.IManager;
 import pl.agh.jtp.lab06_home.visitor.EmployeeCountVisitor;
 import pl.agh.jtp.lab06_home.visitor.Visitable;
 import pl.agh.jtp.lab06_home.visitor.Visitor;
 
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
+import java.io.*;
 import java.util.AbstractCollection;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Class represents simple Company structure
  *
  * @author Łukasz Raduj <raduj.lukasz@gmail.com>
  */
-public class Company extends AbstractCollection<IEmployee> implements Collection<IEmployee>, Visitable, Externalizable {
+public class Company extends AbstractCollection<IEmployee> implements Visitable, Serializable {
+    private final static Logger LOGGER = Logger.getLogger(Company.class.getName());
     private IManager ceo;
     private EmploymentStrategy employmentStrategy;
-
-    public Company() {
-    }
+    private String companyName;
 
     public Company(IManager ceo, EmploymentStrategy employmentStrategy) {
         this.employmentStrategy = employmentStrategy;
         this.ceo = ceo;
+        LOGGER.log(Level.INFO, "New Company created");
     }
 
     void hireCEO(IManager manager) {
@@ -139,19 +141,11 @@ public class Company extends AbstractCollection<IEmployee> implements Collection
         getCEO().accept(visitor);
     }
 
-    @Override
-    public void writeExternal(ObjectOutput objectOutput) throws IOException {
-        objectOutput.writeObject(ceo);
-        objectOutput.writeObject(employmentStrategy);
-
-        //To change body of implemented methods use File | Settings | File Templates.
+    public String getCompanyName() {
+        return companyName;
     }
 
-    @Override
-    public void readExternal(ObjectInput objectInput) throws IOException, ClassNotFoundException {
-        ceo = (IManager) objectInput.readObject();
-        employmentStrategy = (EmploymentStrategy) objectInput.readObject();
-
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }

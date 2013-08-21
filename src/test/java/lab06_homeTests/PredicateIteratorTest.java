@@ -2,8 +2,8 @@ package lab06_homeTests;
 
 import org.junit.Before;
 import org.junit.Test;
-import pl.agh.jtp.lab06_home.Predicate;
-import pl.agh.jtp.lab06_home.PredicateIterator;
+import pl.agh.jtp.lab06_home.iterators.Predicate;
+import pl.agh.jtp.lab06_home.iterators.PredicateIterator;
 
 import java.util.Arrays;
 import java.util.List;

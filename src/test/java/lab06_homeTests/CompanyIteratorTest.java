@@ -7,6 +7,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import pl.agh.jtp.lab06_home.*;
 import pl.agh.jtp.lab06_home.employmentStrategy.SimpleHierarchyEmploymentStrategy;
 import pl.agh.jtp.lab06_home.hireStrategy.TeamSizeHireStrategy;
+import pl.agh.jtp.lab06_home.iterators.CompanyIterator;
 import pl.agh.jtp.lab06_home.structure.IManager;
 import pl.agh.jtp.lab06_home.structure.people.Developer;
 import pl.agh.jtp.lab06_home.structure.people.GroupManager;

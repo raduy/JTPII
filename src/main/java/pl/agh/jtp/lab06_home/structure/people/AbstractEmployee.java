@@ -105,6 +105,8 @@ public abstract class AbstractEmployee implements IEmployee, Serializable {
         if(!getRole().equals(employee.getRole())) {
             return false;
         }
+        System.out.println(employee);
+        System.out.println(getSupervisor());
         if(!getSupervisor().equals(employee.getSupervisor())) {
             return false;
         }

@@ -1,4 +1,4 @@
-package pl.agh.jtp.lab06_home;
+package pl.agh.jtp.lab06_home.iterators;
 
 /**
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>

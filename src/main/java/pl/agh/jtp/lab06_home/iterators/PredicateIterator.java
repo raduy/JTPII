@@ -1,4 +1,4 @@
-package pl.agh.jtp.lab06_home;
+package pl.agh.jtp.lab06_home.iterators;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
