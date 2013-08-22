@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 abstract class AbstractPlugin implements Plugin {
     protected static final Logger LOGGER = Logger.getLogger(AbstractPlugin.class.getName());
 
-    //base command put of first position!
+    //base command must be on of first position! e.g. "open", "open help"
     private String[] commands;
 
     /**

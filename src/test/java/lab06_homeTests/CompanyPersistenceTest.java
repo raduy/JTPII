@@ -3,23 +3,17 @@ package lab06_homeTests;
 import org.junit.Before;
 import org.junit.Test;
 import pl.agh.jtp.lab06_home.Company;
-import pl.agh.jtp.lab06_home.RandomEmployeeFactory;
+import pl.agh.jtp.lab06_home.helpers.RandomEmployeeFactory;
 import pl.agh.jtp.lab06_home.employmentStrategy.SimpleHierarchyEmploymentStrategy;
-import pl.agh.jtp.lab06_home.hireStrategy.BudgetBasedHireStrategy;
 import pl.agh.jtp.lab06_home.hireStrategy.TeamSizeHireStrategy;
 import pl.agh.jtp.lab06_home.structure.IEmployee;
-import pl.agh.jtp.lab06_home.structure.IManager;
-import pl.agh.jtp.lab06_home.structure.people.Developer;
 import pl.agh.jtp.lab06_home.structure.people.GroupManager;
-import pl.agh.jtp.lab06_home.structure.people.Tester;
 import pl.agh.jtp.lab06_home.visitor.CompanyStructurePrintVisitor;
-import pl.agh.jtp.lab06_home.visitor.Visitor;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
 

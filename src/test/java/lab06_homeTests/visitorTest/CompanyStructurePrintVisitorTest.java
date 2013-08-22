@@ -2,11 +2,12 @@ package lab06_homeTests.visitorTest;
 
 import org.junit.Before;
 import org.junit.Test;
+import pl.agh.jtp.lab06_home.hireStrategy.TeamSizeHireStrategy;
+import pl.agh.jtp.lab06_home.structure.IEmployee;
+import pl.agh.jtp.lab06_home.structure.IManager;
 import pl.agh.jtp.lab06_home.structure.people.Developer;
 import pl.agh.jtp.lab06_home.structure.people.GroupManager;
-import pl.agh.jtp.lab06_home.structure.IManager;
 import pl.agh.jtp.lab06_home.structure.people.Tester;
-import pl.agh.jtp.lab06_home.hireStrategy.TeamSizeHireStrategy;
 import pl.agh.jtp.lab06_home.visitor.CompanyStructurePrintVisitor;
 
 import static org.junit.Assert.assertEquals;
@@ -18,6 +19,7 @@ public class CompanyStructurePrintVisitorTest {
 
     private CompanyStructurePrintVisitor instance;
     private GroupManager headManger;
+    private IEmployee directDeveloperUnderCEO;
 
 
     @Before
@@ -47,13 +49,19 @@ public class CompanyStructurePrintVisitorTest {
         securityManager.hire(new Tester("FatJoe", "TestGuy"));
 
         webFlowManager.hire(new Tester("Guy", "tester"));
-        ceo.hire(new Developer("Bary", "Developer"));
+        directDeveloperUnderCEO = new Developer("Bary", "Developer");
+        ceo.hire(directDeveloperUnderCEO);
     }
 
     @Test
     public void stringToPrintTest() {
+        //given
         headManger.accept(instance);
 
+        //when
+        String companyStructure = instance.stringToPrint();
+
+        //then
         assertEquals("[John, Manager, 3]\n" +
                 "|---[Kuba, JavaCore Manager, 3]\n" +
                 "|---|---[Jake, Junior Java Dev, 0]\n" +
@@ -66,6 +74,30 @@ public class CompanyStructurePrintVisitorTest {
                 "|---|---[BigBob, SecurityManager, 1]\n" +
                 "|---|---|---[FatJoe, TestGuy, 0]\n" +
                 "|---|---[Guy, tester, 0]\n" +
-                "|---[Bary, Developer, 0]\n", instance.stringToPrint());
+                "|---[Bary, Developer, 0]\n", companyStructure);
+    }
+
+    @Test
+    public void threeLevelManagerTest() throws Exception {
+        //given
+        headManger.fire(directDeveloperUnderCEO); //before it doesn't work with any direct dev under CEO
+        headManger.accept(instance);
+
+        //when
+        String companyStructure = instance.stringToPrint();
+
+        //then
+        assertEquals("[John, Manager, 2]\n" +
+                "|---[Kuba, JavaCore Manager, 3]\n" +
+                "|---|---[Jake, Junior Java Dev, 0]\n" +
+                "|---|---[Will, Regular Java Dev, 0]\n" +
+                "|---|---[Romek, Java Tester, 0]\n" +
+                "|---[Ania, FrontEnd Manager, 5]\n" +
+                "|---|---[Mark, JS Developer, 0]\n" +
+                "|---|---[Chuck, Bootstrap Expert, 0]\n" +
+                "|---|---[Mili, Tester, 0]\n" +
+                "|---|---[BigBob, SecurityManager, 1]\n" +
+                "|---|---|---[FatJoe, TestGuy, 0]\n" +
+                "|---|---[Guy, tester, 0]\n", companyStructure);
     }
 }

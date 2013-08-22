@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import pl.agh.jtp.lab06_home.structure.people.GroupManager;
-import pl.agh.jtp.lab06_home.structure.IEmployee;
 import pl.agh.jtp.lab06_home.hireStrategy.HireStrategy;
+import pl.agh.jtp.lab06_home.structure.IEmployee;
+import pl.agh.jtp.lab06_home.structure.people.GroupManager;
 import pl.agh.jtp.lab06_home.visitor.Visitor;
 
 import static junit.framework.Assert.assertFalse;

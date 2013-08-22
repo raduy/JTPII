@@ -7,6 +7,7 @@ public enum Session {
     INSTANCE;
 
     private boolean active;
+    private Context currentContext;
 
     public boolean isActive() {
         return active;
@@ -16,8 +17,12 @@ public enum Session {
         this.active = active;
     }
 
-    public boolean equals(Session o) {
-        return isActive() == o.isActive();
+    public Context getCurrentContext() {
+        return currentContext;
+    }
+
+    public void setCurrentContext(Context currentContext) {
+        this.currentContext = currentContext;
     }
 
     @Override

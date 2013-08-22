@@ -1,29 +1,23 @@
 package pl.agh.jtp.lab06_home;
 
-import pl.agh.jtp.lab06_home.employmentStrategy.SimpleHierarchyEmploymentStrategy;
-import pl.agh.jtp.lab06_home.hireStrategy.TeamSizeHireStrategy;
-import pl.agh.jtp.lab06_home.plugins.Plugin;
 import pl.agh.jtp.lab06_home.plugins.PluginManager;
-import pl.agh.jtp.lab06_home.structure.IManager;
-import pl.agh.jtp.lab06_home.structure.people.GroupManager;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * Main application class.
+ * Create a new instance to run application.
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
 public class Application {
     private final static Logger LOGGER = Logger.getLogger(Application.class.getName());
-    private Context currentContext;
     private static Session session = Session.INSTANCE;
-    private List<Plugin> plugins;
-    private final static char prompt = '>';
+    private static PluginManager pluginManager = new PluginManager();
+    private static HelpCommandPerformer helpPerformer = new HelpCommandPerformer();
     private Scanner input = new Scanner(System.in);
-    private List<String> acceptablePluginCommands = Collections.emptyList();
+    private final static char prompt = '>';
 
     public Application() {
         LOGGER.log(Level.INFO, session.toString());
@@ -37,18 +31,10 @@ public class Application {
 
             initializeSession();
         }
-
     }
 
     private void initializeSession() {
-        loadPlugins();
-        //other things needed to start application
         nextCommand();
-    }
-
-    private void loadPlugins() {
-        plugins = PluginManager.getPluginList();
-        acceptablePluginCommands = PluginManager.getAcceptablePluginCommands();
     }
 
     private void nextCommand() {
@@ -64,13 +50,13 @@ public class Application {
 
     private void parseCommand(String s) {
         boolean commandFound;
-        if(s.contains("help")) {
-            commandFound = executeHelp(s);
+        if(s.startsWith("help")) {
+            commandFound = helpPerformer.executeHelp(s,this);
         } else if(s.equals("exit")) {
             commandFound = true;
             exitApplication();
         } else {
-            commandFound = tryExecuteCommandByPlugin(s);
+            commandFound = pluginManager.tryExecuteCommandByPlugin(s, session);
         }
         if(!commandFound) {
             System.out.println("Command not supported :/ List of acceptable commands:");
@@ -79,59 +65,33 @@ public class Application {
         nextCommand();
     }
 
-    private boolean tryExecuteCommandByPlugin(String s) {
-        String command = s.split(" ")[0];
-        for(Plugin plugin : plugins) {
-            if(plugin.accept(command)) {
-                currentContext = plugin.execute(s, currentContext);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean executeHelp(String helpCommand) {
-        if(helpCommand.equals("help")) {
-            listAcceptableCommands();
-            return true;
-        } else {
-            return tryCallHelpForPluginCommands(helpCommand);
-        }
-    }
-
-    private boolean tryCallHelpForPluginCommands(String helpCommand) {
-        for(Plugin plugin : plugins) {
-            if (helpCommand.equals("help " + plugin.getCommand())){
-                System.out.println(plugin.help(plugin.getCommand()));
-                return true;
-            }
-        }
-        return false;
-    }
-
     private void exitApplication() {
         System.out.println("Bye bye");
         input.close();
         session.setActive(false);
-        //other thing which be done before close
+        //other thing which must be done before exit
         System.exit(0);
     }
 
-    private void listAcceptableCommands() {
+    public void listAcceptableCommands() {
         System.out.println("help");
         System.out.println("exit");
-        for(String command : acceptablePluginCommands) {
-            System.out.println(command);
-        }
+        pluginManager.listAcceptablePluginCommands();
     }
 
     private void printContext() {
         //LOGGER.log(Level.INFO, "STATE: " + session);
-        if(currentContext == null) {
+        if(session.getCurrentContext() == null) {
             System.out.println("No Company");
         } else {
-            System.out.printf("%s selected employee: %s\n", currentContext.getCompany().getCompanyName(), currentContext.getCurrentEmployee());
+            System.out.printf("%s selected employee: %s%n",
+                    session.getCurrentContext().getCompany().getCompanyName(),
+                    session.getCurrentContext().getCurrentEmployee());
         }
+    }
+
+    public PluginManager getPluginManager() {
+        return pluginManager;
     }
 
     public static void main(String[] args) {

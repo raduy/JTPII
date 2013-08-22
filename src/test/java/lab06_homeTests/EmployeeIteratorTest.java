@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import pl.agh.jtp.lab06_home.structure.people.GroupManager;
 import pl.agh.jtp.lab06_home.hireStrategy.TeamSizeHireStrategy;
+import pl.agh.jtp.lab06_home.structure.people.GroupManager;
 
 import java.util.Iterator;
 

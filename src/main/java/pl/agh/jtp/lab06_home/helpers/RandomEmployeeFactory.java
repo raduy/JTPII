@@ -1,4 +1,4 @@
-package pl.agh.jtp.lab06_home;
+package pl.agh.jtp.lab06_home.helpers;
 
 import pl.agh.jtp.lab06_home.hireStrategy.TeamSizeHireStrategy;
 import pl.agh.jtp.lab06_home.structure.IEmployee;
