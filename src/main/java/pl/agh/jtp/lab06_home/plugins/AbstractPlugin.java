@@ -1,16 +1,18 @@
 package pl.agh.jtp.lab06_home.plugins;
 
+import pl.agh.jtp.lab06_home.IO.IO;
 import pl.agh.jtp.lab06_home.helpers.StringMatcher;
 
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 /**
  * Plugin interface skeleton.
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
-abstract class AbstractPlugin implements Plugin {
+public abstract class AbstractPlugin implements Plugin {
     protected static final Logger LOGGER = Logger.getLogger(AbstractPlugin.class.getName());
-
+    private static IO io;
     //base command must be on of first position! e.g. "open", "open help"
     private String[] commands;
 
@@ -19,7 +21,8 @@ abstract class AbstractPlugin implements Plugin {
      * Important! put a basic command on first position.
      * @param commandsProvidedByThisPlugin Table of acceptable commands.
      */
-    protected AbstractPlugin(String[] commandsProvidedByThisPlugin) {
+    public AbstractPlugin(String[] commandsProvidedByThisPlugin, IO io) {
+        this.io = io;
         commands = commandsProvidedByThisPlugin;
     }
 
@@ -38,12 +41,30 @@ abstract class AbstractPlugin implements Plugin {
         return false;
     }
 
-    protected boolean checkWhetherCommandMatchesPattern(String command, String regex) {
-        if(!StringMatcher.match(command, regex)) {
-            System.out.println("Bad command form! Right is:");
-            System.out.println(help(command));
-            return false;
-        }
-        return true;
+
+    public boolean validateCommand(String command) {
+        return checkWeatherCommandMatchesPattern(command, getCommandRegexForm());
+    }
+
+    private boolean checkWeatherCommandMatchesPattern(String command, String regex) {
+        return StringMatcher.match(command, regex);
+    }
+
+    public void commandNotValid() {
+        System.out.println("Bad command form! Right is:");
+        System.out.println(help(getCommand()));
+    }
+
+    abstract public String getCommandRegexForm();
+
+    public static IO getIO() {
+        return io;
+    }
+
+    @Override
+    public String toString() {
+        return "Plugin{" +
+                "commands=" + Arrays.toString(commands) +
+                '}';
     }
 }

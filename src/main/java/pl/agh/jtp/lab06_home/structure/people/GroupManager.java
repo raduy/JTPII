@@ -94,7 +94,7 @@ public class GroupManager extends AbstractEmployee implements IManager, Iterable
 
     @Override
     public String getDescription() {
-        return "[" + getName() + ", " + getRole() + ", " + employees.size() + "]";
+        return "[" + getName() + ", " + getRole() + ", " + employees.size() + ", ID: " + getID() + "]";
     }
 
     @Override

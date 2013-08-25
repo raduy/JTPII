@@ -62,19 +62,19 @@ public class CompanyStructurePrintVisitorTest {
         String companyStructure = instance.stringToPrint();
 
         //then
-        assertEquals("[John, Manager, 3]\n" +
-                "|---[Kuba, JavaCore Manager, 3]\n" +
-                "|---|---[Jake, Junior Java Dev, 0]\n" +
-                "|---|---[Will, Regular Java Dev, 0]\n" +
-                "|---|---[Romek, Java Tester, 0]\n" +
-                "|---[Ania, FrontEnd Manager, 5]\n" +
-                "|---|---[Mark, JS Developer, 0]\n" +
-                "|---|---[Chuck, Bootstrap Expert, 0]\n" +
-                "|---|---[Mili, Tester, 0]\n" +
-                "|---|---[BigBob, SecurityManager, 1]\n" +
-                "|---|---|---[FatJoe, TestGuy, 0]\n" +
-                "|---|---[Guy, tester, 0]\n" +
-                "|---[Bary, Developer, 0]\n", companyStructure);
+        assertEquals("[John, Manager, 3, ID: 56]\n" +
+                "|---[Kuba, JavaCore Manager, 3, ID: 57]\n" +
+                "|---|---[Jake, Junior Java Dev, 0, ID: 58]\n" +
+                "|---|---[Will, Regular Java Dev, 0, ID: 59]\n" +
+                "|---|---[Romek, Java Tester, 0, ID: 60]\n" +
+                "|---[Ania, FrontEnd Manager, 5, ID: 61]\n" +
+                "|---|---[Mark, JS Developer, 0, ID: 62]\n" +
+                "|---|---[Chuck, Bootstrap Expert, 0, ID: 63]\n" +
+                "|---|---[Mili, Tester, 0, ID: 64]\n" +
+                "|---|---[BigBob, SecurityManager, 1, ID: 65]\n" +
+                "|---|---|---[FatJoe, TestGuy, 0, ID: 66]\n" +
+                "|---|---[Guy, tester, 0, ID: 67]\n" +
+                "|---[Bary, Developer, 0, ID: 68]\n", companyStructure);
     }
 
     @Test
@@ -87,17 +87,17 @@ public class CompanyStructurePrintVisitorTest {
         String companyStructure = instance.stringToPrint();
 
         //then
-        assertEquals("[John, Manager, 2]\n" +
-                "|---[Kuba, JavaCore Manager, 3]\n" +
-                "|---|---[Jake, Junior Java Dev, 0]\n" +
-                "|---|---[Will, Regular Java Dev, 0]\n" +
-                "|---|---[Romek, Java Tester, 0]\n" +
-                "|---[Ania, FrontEnd Manager, 5]\n" +
-                "|---|---[Mark, JS Developer, 0]\n" +
-                "|---|---[Chuck, Bootstrap Expert, 0]\n" +
-                "|---|---[Mili, Tester, 0]\n" +
-                "|---|---[BigBob, SecurityManager, 1]\n" +
-                "|---|---|---[FatJoe, TestGuy, 0]\n" +
-                "|---|---[Guy, tester, 0]\n", companyStructure);
+        assertEquals("[John, Manager, 2, ID: 69]\n" +
+                "|---[Kuba, JavaCore Manager, 3, ID: 70]\n" +
+                "|---|---[Jake, Junior Java Dev, 0, ID: 71]\n" +
+                "|---|---[Will, Regular Java Dev, 0, ID: 72]\n" +
+                "|---|---[Romek, Java Tester, 0, ID: 73]\n" +
+                "|---[Ania, FrontEnd Manager, 5, ID: 74]\n" +
+                "|---|---[Mark, JS Developer, 0, ID: 75]\n" +
+                "|---|---[Chuck, Bootstrap Expert, 0, ID: 76]\n" +
+                "|---|---[Mili, Tester, 0, ID: 77]\n" +
+                "|---|---[BigBob, SecurityManager, 1, ID: 78]\n" +
+                "|---|---|---[FatJoe, TestGuy, 0, ID: 79]\n" +
+                "|---|---[Guy, tester, 0, ID: 80]\n", companyStructure);
     }
 }

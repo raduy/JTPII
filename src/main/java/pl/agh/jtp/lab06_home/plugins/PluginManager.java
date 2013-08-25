@@ -1,5 +1,6 @@
 package pl.agh.jtp.lab06_home.plugins;
 
+import pl.agh.jtp.lab06_home.IO.IO;
 import pl.agh.jtp.lab06_home.Session;
 
 import java.util.ArrayList;
@@ -11,21 +12,13 @@ import java.util.List;
  */
 public class PluginManager {
     private static List<Plugin> plugins = new ArrayList<>();
+    public final IO io;
+    private final PluginLoader pluginLoader;
 
-    public PluginManager() {
-        loadPlugins();
-    }
-
-    //TODO create PluginLoader
-    private void loadPlugins() {
-        Plugin showPlugin = new ShowStructurePlugin();
-        plugins.add(showPlugin);
-        Plugin openCompanyPlugin = new OpenCompanyPlugin();
-        plugins.add(openCompanyPlugin);
-        Plugin saveCompanyPlugin = new SaveCompanyPlugin();
-        plugins.add(saveCompanyPlugin);
-        Plugin changeEmployeePlugin = new ChangeEmployeePlugin();
-        plugins.add(changeEmployeePlugin);
+    public PluginManager(IO io) {
+        this.io = io;
+        this.pluginLoader = new PluginLoader(io);
+        plugins = pluginLoader.loadPlugins();
     }
 
     public List<Plugin> getPluginList() {

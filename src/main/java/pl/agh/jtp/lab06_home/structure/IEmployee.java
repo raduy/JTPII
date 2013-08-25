@@ -53,4 +53,10 @@ public interface IEmployee extends Visitable {
      * @param newSalary Salary to be set.
      */
     void setSalary(BigDecimal newSalary);
-}
+
+    /**
+     * @return employee ID
+     */
+    public int getID();
+
+ }

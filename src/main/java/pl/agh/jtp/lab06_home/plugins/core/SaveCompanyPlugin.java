@@ -1,19 +1,25 @@
-package pl.agh.jtp.lab06_home.plugins;
+package pl.agh.jtp.lab06_home.plugins.core;
 
-import pl.agh.jtp.lab06_home.Company;
 import pl.agh.jtp.lab06_home.Context;
+import pl.agh.jtp.lab06_home.IO.IO;
+import pl.agh.jtp.lab06_home.versionControl.License;
+import pl.agh.jtp.lab06_home.plugins.AbstractPlugin;
+import pl.agh.jtp.lab06_home.versionControl.LicenseType;
 
 import java.io.*;
 import java.util.logging.Level;
 
+import static pl.agh.jtp.lab06_home.versionControl.LicenseType.ENTERPRISE;
+
 /**
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
+@License(licenseType = ENTERPRISE)
 public class SaveCompanyPlugin extends AbstractPlugin {
     private static final String commandRegexForm = "^save[ ]+[a-zA-Z]+[.][a-zA-Z]+[ ]*";
 
-    public SaveCompanyPlugin() {
-        super(new String[]{"save", "help save"});
+    public SaveCompanyPlugin(IO io) {
+        super(new String[]{"save", "help save"}, io);
     }
 
     @Override
@@ -25,12 +31,13 @@ public class SaveCompanyPlugin extends AbstractPlugin {
     @Override
     public Context execute(String command, Context context) {
 
-        if(!checkWhetherCommandMatchesPattern(command, commandRegexForm)) {
+        if(!validateCommand(command)) {
+            commandNotValid();
             return context;
         }
 
         if(context == null) {
-            System.out.println("No Company to save");
+            getIO().writeln("No Company to save");
             return context;
         }
 
@@ -41,12 +48,17 @@ public class SaveCompanyPlugin extends AbstractPlugin {
             outputStream.writeObject(context.getCompany());
 
         } catch (FileNotFoundException e) {
-            System.out.println("Ops.. Can't create such file. Try again");
+            getIO().writeln("Ops.. Can't create such file. Try again");
             LOGGER.log(Level.FINE, "Bad file name given as an argument", e); //fine because users often put wrong data
         } catch (IOException e) {
-            System.out.println("Ops.. There was a problem with writing into a file. Try again");
+            getIO().writeln("Ops.. There was a problem with writing into a file. Try again");
             LOGGER.log(Level.SEVERE, "I/O error occurs while writing FileInputStream", e);
         }
         return context;
+    }
+
+    @Override
+    public String getCommandRegexForm() {
+        return commandRegexForm;
     }
 }

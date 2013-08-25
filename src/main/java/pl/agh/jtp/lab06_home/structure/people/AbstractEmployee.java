@@ -21,6 +21,8 @@ public abstract class AbstractEmployee implements IEmployee, Serializable {
     private transient String name;
     private final String role;
     private transient BigDecimal salary;
+    private static int IDCounter = 1;
+    private int ID = IDCounter++;
     private IManager supervisor;
 
     protected AbstractEmployee(String name, String role) {
@@ -74,6 +76,11 @@ public abstract class AbstractEmployee implements IEmployee, Serializable {
     }
 
     @Override
+    public String getDescription() {
+        return "[" + getName() + ", " + getRole() + ", " + 0 + ", ID: " + getID() + "]";
+    }
+
+    @Override
     public String toString() {
         return this.getClass().getSimpleName() + " " + getName() + " with role: " + getRole();
     }
@@ -115,6 +122,10 @@ public abstract class AbstractEmployee implements IEmployee, Serializable {
         }
 
         return true;
+    }
+
+    public int getID() {
+        return ID;
     }
 
     private void writeObject(ObjectOutputStream stream) throws IOException {

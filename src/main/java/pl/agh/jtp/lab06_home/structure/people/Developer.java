@@ -31,11 +31,6 @@ public class Developer extends AbstractEmployee implements IEmployee {
     }
 
     @Override
-    public String getDescription() {
-        return "[" + getName() + ", " + getRole() + ", " + 0 + "]";
-    }
-
-    @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
