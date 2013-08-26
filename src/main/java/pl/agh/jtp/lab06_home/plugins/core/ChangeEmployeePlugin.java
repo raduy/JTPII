@@ -27,12 +27,7 @@ public class ChangeEmployeePlugin extends AbstractPlugin {
     }
 
     @Override
-    public Context execute(String command, Context context) {
-
-        if(!validateCommand(command)) {
-            commandNotValid();
-            return context;
-        }
+    public Context executeValidCommand(String command, Context context) {
 
         if(context == null) {
             getIO().writeln("There are no company selected !" +

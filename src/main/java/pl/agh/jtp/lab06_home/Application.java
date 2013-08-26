@@ -3,6 +3,7 @@ package pl.agh.jtp.lab06_home;
 import pl.agh.jtp.lab06_home.IO.ConsoleIO;
 import pl.agh.jtp.lab06_home.IO.IO;
 import pl.agh.jtp.lab06_home.plugins.PluginManager;
+import pl.agh.jtp.lab06_home.stats.Statistics;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,6 +18,7 @@ public class Application {
     private static Session session = Session.INSTANCE;
     private static PluginManager pluginManager;
     private final IO io = new ConsoleIO();
+    private Statistics statistics;
 
     public Application() {
         LOGGER.log(Level.INFO, session.toString());
@@ -33,6 +35,7 @@ public class Application {
     }
 
     private void startNewSession() {
+        statistics = new Statistics();
         pluginManager = new PluginManager(io);
         Interpreter interpreter = new Interpreter(this);
         interpreter.nextCommand();
@@ -40,6 +43,9 @@ public class Application {
 
     public void exitApplication() {
         io.writeln("Bye bye");
+        statistics.incrementCommandInvocationCounterOrCreateANewEntry("exit");
+        statistics.logSingleSessionStatistics();
+        io.closeResources();
         session.setActive(false);
         System.exit(0);
     }

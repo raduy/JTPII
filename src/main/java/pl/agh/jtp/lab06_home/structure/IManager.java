@@ -1,7 +1,5 @@
 package pl.agh.jtp.lab06_home.structure;
 
-import pl.agh.jtp.lab06_home.structure.IEmployee;
-
 /**
  * @author Łukasz Raduj <raduj.lukasz@gmail.com>
  */

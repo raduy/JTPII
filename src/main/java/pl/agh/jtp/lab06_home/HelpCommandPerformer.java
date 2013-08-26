@@ -1,12 +1,20 @@
 package pl.agh.jtp.lab06_home;
 
+import pl.agh.jtp.lab06_home.IO.IO;
 import pl.agh.jtp.lab06_home.plugins.Plugin;
+import pl.agh.jtp.lab06_home.stats.Statistics;
 
 /**
  * Class provide help command execution.
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
 public class HelpCommandPerformer {
+    private final IO io;
+    private Statistics statistics = new Statistics();
+
+    public HelpCommandPerformer(IO io) {
+        this.io = io;
+    }
 
     /**
      * Method tries to execute command "help".
@@ -18,6 +26,7 @@ public class HelpCommandPerformer {
      */
     public boolean executeHelp(String helpCommand, Application application) {
         if("help".equals(helpCommand)) {
+            statistics.incrementCommandInvocationCounterOrCreateANewEntry("help");
             application.listAcceptableCommands();
             return true;
         } else {
@@ -28,7 +37,7 @@ public class HelpCommandPerformer {
     private boolean tryCallHelpForPluginCommands(String helpCommand, Application application) {
         for(Plugin plugin : application.getPluginManager().getPluginList()) {
             if (helpCommand.equals("help " + plugin.getCommand())){
-                System.out.println(plugin.help(plugin.getCommand()));
+                io.writeln(plugin.help(plugin.getCommand()));
                 return true;
             }
         }

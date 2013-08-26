@@ -2,9 +2,8 @@ package pl.agh.jtp.lab06_home.plugins.core;
 
 import pl.agh.jtp.lab06_home.Context;
 import pl.agh.jtp.lab06_home.IO.IO;
-import pl.agh.jtp.lab06_home.versionControl.License;
 import pl.agh.jtp.lab06_home.plugins.AbstractPlugin;
-import pl.agh.jtp.lab06_home.versionControl.LicenseType;
+import pl.agh.jtp.lab06_home.versionControl.License;
 
 import java.io.*;
 import java.util.logging.Level;
@@ -29,12 +28,7 @@ public class SaveCompanyPlugin extends AbstractPlugin {
     }
 
     @Override
-    public Context execute(String command, Context context) {
-
-        if(!validateCommand(command)) {
-            commandNotValid();
-            return context;
-        }
+    public Context executeValidCommand(String command, Context context) {
 
         if(context == null) {
             getIO().writeln("No Company to save");

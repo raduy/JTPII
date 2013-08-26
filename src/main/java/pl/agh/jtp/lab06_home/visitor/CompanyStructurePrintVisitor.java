@@ -2,7 +2,6 @@ package pl.agh.jtp.lab06_home.visitor;
 
 
 import pl.agh.jtp.lab06_home.structure.IEmployee;
-import pl.agh.jtp.lab06_home.structure.IManager;
 import pl.agh.jtp.lab06_home.structure.people.Developer;
 import pl.agh.jtp.lab06_home.structure.people.GroupManager;
 import pl.agh.jtp.lab06_home.structure.people.Tester;

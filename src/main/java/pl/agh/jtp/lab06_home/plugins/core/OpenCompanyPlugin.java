@@ -3,14 +3,13 @@ package pl.agh.jtp.lab06_home.plugins.core;
 import pl.agh.jtp.lab06_home.Company;
 import pl.agh.jtp.lab06_home.Context;
 import pl.agh.jtp.lab06_home.IO.IO;
-import pl.agh.jtp.lab06_home.versionControl.License;
 import pl.agh.jtp.lab06_home.plugins.AbstractPlugin;
-import pl.agh.jtp.lab06_home.versionControl.LicenseType;
+import pl.agh.jtp.lab06_home.versionControl.License;
 
 import java.io.*;
 import java.util.logging.Level;
 
-import static pl.agh.jtp.lab06_home.versionControl.LicenseType.*;
+import static pl.agh.jtp.lab06_home.versionControl.LicenseType.STANDARD;
 
 /**
  * Plugin provide the 'open' command.
@@ -34,12 +33,7 @@ public class OpenCompanyPlugin extends AbstractPlugin {
     }
 
     @Override
-    public Context execute(String command, Context context) {
-
-        if(!validateCommand(command)) {
-            commandNotValid();
-            return context;
-        }
+    public Context executeValidCommand(String command, Context context) {
 
         Context result = null;
         String path = command.split("[ ]+")[1];

@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  */
 public class Interpreter {
     private static final Logger LOGGER = Logger.getLogger(Interpreter.class.getName());
-    private HelpCommandPerformer helpPerformer = new HelpCommandPerformer();
+    private HelpCommandPerformer helpPerformer;
     private final Application application;
     private final static char prompt = '>';
     private final IO io;
@@ -18,6 +18,7 @@ public class Interpreter {
     public Interpreter(Application application) {
         this.application = application;
         this.io = application.getIO();
+        helpPerformer = new HelpCommandPerformer(io);
     }
 
     public void nextCommand() {

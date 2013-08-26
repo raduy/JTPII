@@ -10,7 +10,7 @@ import pl.agh.jtp.lab06_home.visitor.EmployeeCountVisitor;
 import pl.agh.jtp.lab06_home.visitor.Visitable;
 import pl.agh.jtp.lab06_home.visitor.Visitor;
 
-import java.io.*;
+import java.io.Serializable;
 import java.util.AbstractCollection;
 import java.util.Collection;
 import java.util.Iterator;

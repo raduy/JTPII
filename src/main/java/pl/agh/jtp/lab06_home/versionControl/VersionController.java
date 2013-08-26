@@ -20,7 +20,6 @@ public class VersionController {
     }
 
     public LicenseType getVersion() {
-        LOGGER.log(Level.INFO, "Loaded license: " + version);
         return version;
     }
 
@@ -31,6 +30,7 @@ public class VersionController {
             for(LicenseType licenseType : LicenseType.values()) {
                 if(licenseHash.equals(licenseType.getLicenseHash())) {
                     version = licenseType;
+                    LOGGER.log(Level.INFO, "Loaded license: " + version);
                     break;
                 }
             }

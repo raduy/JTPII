@@ -1,5 +1,6 @@
 package pl.agh.jtp.lab06_home.plugins;
 
+import pl.agh.jtp.lab06_home.Context;
 import pl.agh.jtp.lab06_home.IO.IO;
 import pl.agh.jtp.lab06_home.helpers.StringMatcher;
 
@@ -41,8 +42,19 @@ public abstract class AbstractPlugin implements Plugin {
         return false;
     }
 
+    @Override
+    public Context execute(String command, Context context) {
+        if(!validateCommand(command)) {
+            commandNotValid();
+            return context;
+        }
 
-    public boolean validateCommand(String command) {
+        return executeValidCommand(command, context);
+    }
+
+    protected abstract Context executeValidCommand(String command, Context context);
+
+    private boolean validateCommand(String command) {
         return checkWeatherCommandMatchesPattern(command, getCommandRegexForm());
     }
 
@@ -50,7 +62,7 @@ public abstract class AbstractPlugin implements Plugin {
         return StringMatcher.match(command, regex);
     }
 
-    public void commandNotValid() {
+    private void commandNotValid() {
         System.out.println("Bad command form! Right is:");
         System.out.println(help(getCommand()));
     }

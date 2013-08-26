@@ -1,7 +1,5 @@
 package pl.agh.jtp.lab06_home.IO;
 
-import java.io.IOException;
-
 /**
  * Interface represent object which provide simple Input and Output operation.
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
@@ -24,4 +22,9 @@ public interface IO {
      * @param text Text to write.
      */
     void writeln(String text);
+
+    /**
+     * Close all uses resources, e.g. streams.
+     */
+    void closeResources();
 }

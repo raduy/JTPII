@@ -1,9 +1,9 @@
 package pl.agh.jtp.lab06_home.structure.people;
 
-import pl.agh.jtp.lab06_home.structure.IEmployee;
-import pl.agh.jtp.lab06_home.structure.IManager;
 import pl.agh.jtp.lab06_home.hireStrategy.HireStrategy;
 import pl.agh.jtp.lab06_home.structure.EmployeeIterator;
+import pl.agh.jtp.lab06_home.structure.IEmployee;
+import pl.agh.jtp.lab06_home.structure.IManager;
 import pl.agh.jtp.lab06_home.visitor.Visitor;
 
 import java.math.BigDecimal;

@@ -16,7 +16,7 @@ public class ConsoleIO implements IO {
     @Override
     public String readLine() {
         try {
-            return in.readLine();
+            return in.readLine().toLowerCase(); //accept also UPPERCASE letter commands.
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Problem during reading a new line!", e);
         }
@@ -41,6 +41,16 @@ public class ConsoleIO implements IO {
             out.flush();
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Problem during writing a new line!", e);
+        }
+    }
+
+    @Override
+    public void closeResources() {
+        try {
+            in.close();
+            out.close();
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Problem during IO resources closing!", e);
         }
     }
 }

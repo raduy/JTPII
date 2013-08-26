@@ -3,7 +3,6 @@ package pl.agh.jtp.lab06_home.hireStrategy;
 import pl.agh.jtp.lab06_home.structure.IEmployee;
 import pl.agh.jtp.lab06_home.structure.IManager;
 
-import java.io.Serializable;
 import java.util.Iterator;
 
 /**
