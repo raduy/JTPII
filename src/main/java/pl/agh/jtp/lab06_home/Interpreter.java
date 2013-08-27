@@ -2,14 +2,11 @@ package pl.agh.jtp.lab06_home;
 
 import pl.agh.jtp.lab06_home.IO.IO;
 
-import java.util.logging.Logger;
-
 /**
  * Reads input data and return effect to application output.
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
 public class Interpreter {
-    private static final Logger LOGGER = Logger.getLogger(Interpreter.class.getName());
     private HelpCommandPerformer helpPerformer;
     private final Application application;
     private final static char prompt = '>';
@@ -30,7 +27,6 @@ public class Interpreter {
         if("".equals(inputString)) {
             nextCommand();
         }
-//        LOGGER.log(Level.INFO, "Command: '" + inputString + "' call");
         parseCommand(inputString);
     }
 

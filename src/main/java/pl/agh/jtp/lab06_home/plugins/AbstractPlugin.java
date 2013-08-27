@@ -5,6 +5,7 @@ import pl.agh.jtp.lab06_home.IO.IO;
 import pl.agh.jtp.lab06_home.helpers.StringMatcher;
 
 import java.util.Arrays;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -44,6 +45,7 @@ public abstract class AbstractPlugin implements Plugin {
 
     @Override
     public Context execute(String command, Context context) {
+        LOGGER.log(Level.INFO, "Try invoke:" + command + " command");
         if(!validateCommand(command)) {
             commandNotValid();
             return context;
@@ -63,8 +65,8 @@ public abstract class AbstractPlugin implements Plugin {
     }
 
     private void commandNotValid() {
-        System.out.println("Bad command form! Right is:");
-        System.out.println(help(getCommand()));
+        io.writeln("Bad command form! Right is:");
+        io.writeln(help(getCommand()));
     }
 
     abstract public String getCommandRegexForm();

@@ -45,7 +45,7 @@ public class OpenCompanyPlugin extends AbstractPlugin {
 
         } catch (FileNotFoundException e) {
             getIO().writeln("Ops.. Can't find such file. Try again");
-            LOGGER.log(Level.FINE, "Bad file name given as an argument", e); //fine because users often put wrong data
+            LOGGER.log(Level.SEVERE, "Bad file name given as an argument", e);
         } catch (IOException e) {
             getIO().writeln("Ops.. There was a problem with reading a file. Try again");
             LOGGER.log(Level.SEVERE, "I/O error occurs while reading FileInputStream", e);

@@ -14,30 +14,36 @@ import java.util.logging.Logger;
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>
  */
 public class Application {
-    private final static Logger LOGGER = Logger.getLogger(Application.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
+
     private static Session session = Session.INSTANCE;
     private static PluginManager pluginManager;
     private final IO io = new ConsoleIO();
+    private Interpreter interpreter;
     private Statistics statistics;
 
     public Application() {
+        ConfigurationLoader.loadConfiguration();
+        LOGGER.log(Level.INFO, "CONFIGURATION LOADED");
         LOGGER.log(Level.INFO, session.toString());
+
         if(session.isActive()) {
             LOGGER.log(Level.INFO, "Some try to create doubled session");
-            System.out.println("Application is already running");
+            io.writeln("Application is already running");
         } else {
-            LOGGER.log(Level.INFO, "New session started");
             session.setActive(true);
             LOGGER.log(Level.INFO, session.toString());
+
+            statistics = new Statistics();
+            pluginManager = new PluginManager(io);
+            interpreter = new Interpreter(this);
 
             startNewSession();
         }
     }
 
     private void startNewSession() {
-        statistics = new Statistics();
-        pluginManager = new PluginManager(io);
-        Interpreter interpreter = new Interpreter(this);
+        LOGGER.log(Level.INFO, "New session started");
         interpreter.nextCommand();
     }
 
@@ -57,7 +63,6 @@ public class Application {
     }
 
     public void printContext() {
-        //LOGGER.log(Level.INFO, "STATE: " + session);
         if(session.getCurrentContext() == null) {
             io.writeln("No Company");
         } else {
