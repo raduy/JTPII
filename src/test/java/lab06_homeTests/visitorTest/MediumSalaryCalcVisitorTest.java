@@ -5,8 +5,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import pl.agh.jtp.lab06_home.structure.people.Developer;
-import pl.agh.jtp.lab06_home.structure.people.Tester;
+import pl.agh.jtp.lab06_home.domain.people.Developer;
+import pl.agh.jtp.lab06_home.domain.people.Tester;
 import pl.agh.jtp.lab06_home.visitor.MediumSalaryCalcVisitor;
 
 import java.math.BigDecimal;

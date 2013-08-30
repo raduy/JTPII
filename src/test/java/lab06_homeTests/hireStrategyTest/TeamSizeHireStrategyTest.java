@@ -6,9 +6,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import pl.agh.jtp.lab06_home.hireStrategy.TeamSizeHireStrategy;
-import pl.agh.jtp.lab06_home.structure.IEmployee;
-import pl.agh.jtp.lab06_home.structure.IManager;
+import pl.agh.jtp.lab06_home.domain.IEmployee;
+import pl.agh.jtp.lab06_home.domain.IManager;
+import pl.agh.jtp.lab06_home.hirestrategy.TeamSizeHireStrategy;
 
 import java.util.Iterator;
 import java.util.LinkedList;

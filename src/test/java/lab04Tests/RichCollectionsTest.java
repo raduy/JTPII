@@ -1,15 +1,13 @@
 package lab04Tests;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
 import pl.agh.jtp.lab03.*;
-import pl.agh.jtp.lab_04.Function;
-import pl.agh.jtp.lab_04.Predicate;
+import pl.agh.jtp.lab04.Function;
+import pl.agh.jtp.lab04.Predicate;
 import pl.agh.jtp.lab03.Color;
 
 import java.util.ArrayList;
@@ -18,12 +16,10 @@ import java.util.Collections;
 import java.util.Map;
 
 import static org.junit.Assert.*;
-import static org.mockito.Matchers.booleanThat;
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
-import static pl.agh.jtp.lab_04.RichCollections.filter;
-import static pl.agh.jtp.lab_04.RichCollections.map;
-import static pl.agh.jtp.lab_04.RichCollections.groupBy;
+import static pl.agh.jtp.lab04.RichCollections.filter;
+import static pl.agh.jtp.lab04.RichCollections.map;
+import static pl.agh.jtp.lab04.RichCollections.groupBy;
 
 /**
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>

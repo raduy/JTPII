@@ -1,8 +1,8 @@
-package pl.agh.jtp.lab06_home.employmentStrategy;
+package pl.agh.jtp.lab06_home.employmentstrategy;
 
-import pl.agh.jtp.lab06_home.Company;
-import pl.agh.jtp.lab06_home.structure.IEmployee;
-import pl.agh.jtp.lab06_home.structure.IManager;
+import pl.agh.jtp.lab06_home.domain.Company;
+import pl.agh.jtp.lab06_home.domain.IEmployee;
+import pl.agh.jtp.lab06_home.domain.IManager;
 
 import java.io.Serializable;
 

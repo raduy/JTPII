@@ -1,4 +1,4 @@
-pl.agh.jtp.lab06_home.plugins.core.OpenCompanyPlugin
-pl.agh.jtp.lab06_home.plugins.core.SaveCompanyPlugin
-pl.agh.jtp.lab06_home.plugins.core.ChangeEmployeePlugin
-pl.agh.jtp.lab06_home.plugins.core.ShowStructurePlugin
+pl.agh.jtp.lab06_home.application.plugins.core.OpenCompanyPlugin
+pl.agh.jtp.lab06_home.application.plugins.core.SaveCompanyPlugin
+pl.agh.jtp.lab06_home.application.plugins.core.ChangeEmployeePlugin
+pl.agh.jtp.lab06_home.application.plugins.core.ShowStructurePlugin

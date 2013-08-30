@@ -2,10 +2,10 @@ package lab06_homeTests.encryptionTest;
 
 import org.junit.Before;
 import org.junit.Test;
+import pl.agh.jtp.lab06_home.domain.IEmployee;
+import pl.agh.jtp.lab06_home.domain.people.Developer;
 import pl.agh.jtp.lab06_home.encryption.Cryptor;
 import pl.agh.jtp.lab06_home.encryption.EncodedObject;
-import pl.agh.jtp.lab06_home.structure.IEmployee;
-import pl.agh.jtp.lab06_home.structure.people.Developer;
 
 import java.io.ByteArrayInputStream;
 import java.io.ObjectInputStream;

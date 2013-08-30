@@ -1,8 +1,8 @@
 package pl.agh.jtp.lab06_home.visitor;
 
-import pl.agh.jtp.lab06_home.structure.people.Developer;
-import pl.agh.jtp.lab06_home.structure.people.GroupManager;
-import pl.agh.jtp.lab06_home.structure.people.Tester;
+import pl.agh.jtp.lab06_home.domain.people.Developer;
+import pl.agh.jtp.lab06_home.domain.people.GroupManager;
+import pl.agh.jtp.lab06_home.domain.people.Tester;
 
 /**
  * @author Lukasz Raduj <raduj.lukasz@gmail.com>

@@ -2,12 +2,12 @@ package lab06_homeTests.visitorTest;
 
 import org.junit.Before;
 import org.junit.Test;
-import pl.agh.jtp.lab06_home.hireStrategy.TeamSizeHireStrategy;
-import pl.agh.jtp.lab06_home.structure.IEmployee;
-import pl.agh.jtp.lab06_home.structure.IManager;
-import pl.agh.jtp.lab06_home.structure.people.Developer;
-import pl.agh.jtp.lab06_home.structure.people.GroupManager;
-import pl.agh.jtp.lab06_home.structure.people.Tester;
+import pl.agh.jtp.lab06_home.domain.IEmployee;
+import pl.agh.jtp.lab06_home.domain.IManager;
+import pl.agh.jtp.lab06_home.domain.people.Developer;
+import pl.agh.jtp.lab06_home.domain.people.GroupManager;
+import pl.agh.jtp.lab06_home.domain.people.Tester;
+import pl.agh.jtp.lab06_home.hirestrategy.TeamSizeHireStrategy;
 import pl.agh.jtp.lab06_home.visitor.CompanyStructurePrintVisitor;
 
 import static org.junit.Assert.assertEquals;
